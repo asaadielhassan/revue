@@ -5,8 +5,6 @@
       {{ post.title }}
     </PostPreview>
 
-    <Aboutus />
-
     <CreateButton></CreateButton>
   </div>
 </template>
