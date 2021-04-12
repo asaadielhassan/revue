@@ -35,7 +35,7 @@
                     ["Tristan", "SUPREME OVERLORD I", "https://user-images.githubusercontent.com/71510797/112917605-a02b8e00-90c8-11eb-95c9-19a95e17e53a.jpg", "I am an aspriring software developer and a Junior at Knox College, pursuing a Bachelors of Science in Computer Science. In addition to my studies, I have helped build multiple websites through squarespace and wordpress. In school I have built a few very simple projects using unity, and have accumulated a significant portion of code on GitHub. I also have more than five years of experience as a theatrical lighting technician, lighting board operator, and scenic carpenter."],
                 ],
                 title: "Meet the Devs",
-                
+
             }
         },
 
