@@ -1,7 +1,11 @@
 <template>
     <div id="app">
-        <NavBar />
-
+        <!-- <NavBar /> -->
+        <header>
+             <NewNav />
+             
+        </header>
+       
         <main>
             <router-view />
         </main>
@@ -9,11 +13,15 @@
 </template>
 
 <script>
-import NavBar from '@/components/NavBar'
+// import NavBar from '@/components/NavBar'
+import NewNav from '@/components/NewNav'
 
 export default {
     name: 'app',
-    components: { NavBar },
+    components: { 
+        // NavBar
+        NewNav
+    },
 
     created() {
         this.$store.dispatch('updateSubscribedSubvues')
@@ -27,5 +35,16 @@ export default {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+} 
+
+ body {
+    font-family: 'montserrat', sans-serif;
+}
+
+header {
+    width: 100vw;
+    background-color: rgb(235, 151, 102);
+    padding: 5px;
+    /* height: 40px; */
 }
 </style>
