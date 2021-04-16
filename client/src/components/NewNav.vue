@@ -82,22 +82,24 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* text-align: center; */
 }
 
 nav .menu-item {
   color: #fff;
-  padding: 10px 20px;
+  padding: 14px 25px;
   position: relative;
   text-align: center;
   border-bottom: 3px solid transparent;
   display: flex;
   transition: 0.4s;
+  font-size: 18px;
 }
 
 nav .menu-item.active,
 nav .menu-item:hover {
-  background-color: #444;
-  border-bottom-color: #27afd8;
+  background-color: rgb(194, 118, 56);
+  border-bottom-color: #303030;
 }
 
 nav .menu-item a {
@@ -107,21 +109,23 @@ nav .menu-item a {
 
 nav .title {
   color: #fff;
+  font-family: Arial;
   padding: 10px 20px;
   position: relative;
   text-align: center;
   border-bottom: 3px solid transparent;
   display: flex;
   transition: 0.4s;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 25px;
+  
 }
 
 
 nav .title.active,
 nav .title:hover {
-  background-color: #444;
-  border-bottom-color: #27afd8;
+  background-color: rgb(194, 118, 56);
+  border-bottom-color: #303030;
 }
 
 nav .title a {
@@ -131,19 +135,20 @@ nav .title a {
 
 nav .sign-up {
   color: #fff;
-  padding: 10px 20px;
+  padding: 15.5px 20px;
   position: relative;
   text-align: center;
   border-bottom: 3px solid transparent;
   display: flex;
   transition: 0.4s;
   margin-left: 1325px;
+  font-size: 18px;
 }
 
 nav .sign-up.active,
 nav .sign-up:hover {
-  background-color: #444;
-  border-bottom-color: #27afd8;
+  background-color: rgb(194, 118, 56);
+  border-bottom-color:#303030;
 }
 
 nav .sign-up a {

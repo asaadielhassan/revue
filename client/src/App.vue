@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <NavBar />
+        <!-- <NavBar /> -->
         <header>
              <NewNav />
              
@@ -35,15 +35,16 @@ export default {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
+} 
 
-body {
+ body {
     font-family: 'montserrat', sans-serif;
 }
 
 header {
     width: 100vw;
-    background-color: #222;
-    padding: 15px;
+    background-color: rgb(235, 151, 102);
+    padding: 5px;
+    /* height: 40px; */
 }
 </style>
