@@ -135,13 +135,13 @@ nav .title a {
 
 nav .sign-up {
   color: #fff;
-  padding: 15.5px 20px;
+  padding: 14px 20px;
   position: relative;
   text-align: center;
   border-bottom: 3px solid transparent;
   display: flex;
   transition: 0.4s;
-  margin-left: 1325px;
+  margin-left: 1315px;
   font-size: 18px;
 }
 
