@@ -58,7 +58,8 @@
 #title{
     font-size: 3em;
     margin-top: 25px;
-    color: steelblue;
+    /* color: steelblue; */
+    color: rgb(235, 151, 102);
 }
 
 

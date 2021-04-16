@@ -44,6 +44,7 @@ export default {
 header {
     width: 100vw;
     background-color: rgb(235, 151, 102);
+    /* background-color: steelblue; */
     padding: 5px;
     /* height: 40px; */
 }
