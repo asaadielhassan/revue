@@ -51,6 +51,12 @@ class habits:
     def getStreak(self):
         return self.streak
 
+    def setStartDay(self, day):
+        self.start_Day = day
+
+    def getStartDay(self):
+        return self.start_Day
+
     def setStartDate(self, date):
         self.start_Date = date
 
