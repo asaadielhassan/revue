@@ -35,22 +35,37 @@ class habits:
 
     def setName(self, name):
         self.name = name
+
     def getName(self):
         return self.name
+
     def setDays(self, days):
         self.days = days
+
     def getDays(self):
         return self.days
+
     def setStreak(self, num):
         self.streak = num
+
     def getStreak(self):
         return self.streak
+
+    def setStartDay(self, day):
+        self.start_Day = day
+
+    def getStartDay(self):
+        return self.start_Day
+
     def setStartDate(self, date):
         self.start_Date = date
+
     def getStartDate(self):
         return self.start_Date
+
     def setEndDate(self, date):
         self.end_Date = date
+        
     def getEndDate(self):
         return self.end_Date
 
@@ -59,9 +74,9 @@ class habits:
         daycurr = curr_Date[1]
         day2 = end_Date[1]
         if(int(end_Date[1]) > int(start_Date[1])):
-            day2 += 30
+            day2 += monthDict[end_Date[1]]
         if(int(curr_Date[1]) > int(start_Date[1])):
-            daycurr += 30
+            daycurr += monthDict[curr_Date[1]]
         fromStart = daycurr - day1
         totalDays = day2 - day1
         return str(round(fromStart/totalDays, 2))
