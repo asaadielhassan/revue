@@ -1,6 +1,6 @@
 <template lang="html">
   <nav>
-    <router-link class="title" :to="{ name: 'Home', params: {} }">ReVue</router-link>
+    <router-link class="title" :to="{ name: 'Home', params: {} }">Productify</router-link>
     <router-link class="about-us" :to="{ name: 'AboutUs' }">About the Team</router-link>
     <div class="dropdown">
       <button class="dropbtn">Subvues</button>
@@ -39,7 +39,7 @@ export default {
 
 <style scoped lang="css">
 nav {
-  overflow: hidden;
+  overflow: hidden; 
   background-color: #333;
   font-family: Arial;
 }
@@ -51,9 +51,9 @@ nav a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-}
+} 
 
-.title {
+ .title {
   font-weight: bold;
 }
 .about-us{
@@ -63,6 +63,8 @@ nav a {
 .about-us:hover {
   background-color: rgb(7, 44, 45) !important;
 }
+
+
 .create-subvue {
   background-color: rgb(23, 92, 93);
   color: white !important;
