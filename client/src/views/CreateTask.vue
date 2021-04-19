@@ -1,13 +1,13 @@
 <template lang="html">
   <div class="create-post container">
-    <h1>Add Task</h1>
+    <h1>Make a Grid</h1>
     <form @submit.prevent="create" enctype="multipart/form-data">
       <p class="error">{{ error }}</p>
-      <input v-model="name" type="text" placeholder="Task Name" ref="title">
+      <input v-model="name" type="text" placeholder="Grid Name" ref="title">
       <input v-model="days" type="number" placeholder="Number of days">
        
       <textarea v-model="description" name="name" placeholder="Description" rows="10" cols="80"></textarea>
-      <input class="button" type="submit" value="Create task">
+      <input class="button" type="submit" value="Build My Grid!">
     </form>
   </div>
 </template>
