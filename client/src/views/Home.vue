@@ -5,19 +5,20 @@
       {{ post.title }}
     </PostPreview> -->
 
-    <!-- <CreateButton></CreateButton> -->
+    <CreateButton></CreateButton>
   </div>
 </template>
 
 <script>
 // import PostPreview from '@/components/PostPreview'
 import PostsService from '@/services/PostsService'
-// import CreateButton from '@/components/CreateButton'
+import CreateButton from '@/components/CreateButton'
 
 export default {
   name: 'home',
 
   // components: { PostPreview, CreateButton },
+  components: {CreateButton},
 
   data() {
     return {
