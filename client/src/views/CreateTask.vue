@@ -3,20 +3,11 @@
     <h1>Add Task</h1>
     <form @submit.prevent="create" enctype="multipart/form-data">
       <p class="error">{{ error }}</p>
-      <input v-model="title" type="text" placeholder="Title" ref="title">
-      <input v-model="subvue" type="text" placeholder="Subvue">
-      <div v-if="imagePreview" id="image-preview" :style="'background-image: url(' + imagePreview + ')'"></div>
-      <div id="image-upload">
-        <p>
-          <span v-if="!image">Drag your image here to begin<br> or click to browse</span>
-          <span v-else>
-            {{ image.name }}
-          </span>
-        </p>
-        <input type="file" @change="fileChanged" accept="image/*">
-      </div>
-      <textarea v-model="content" name="name" placeholder="Content" rows="25" cols="80"></textarea>
-      <input class="button" type="submit" value="Create post">
+      <input v-model="name" type="text" placeholder="Task Name" ref="title">
+      <input v-model="days" type="number" placeholder="Number of days">
+       
+      <textarea v-model="description" name="name" placeholder="Description" rows="10" cols="80"></textarea>
+      <input class="button" type="submit" value="Create task">
     </form>
   </div>
 </template>
@@ -25,36 +16,29 @@
 import PostsService from '@/services/PostsService'
 
 export default {
-    name: 'create-post',
+    name: 'create-task',
 
     data() {
         return {
-            title: '',
-            subvue: '',
-            content: '',
+            name: '',
+            days: null,
+            description: '',
             error: null,
-            image: null,
-            imagePreview: null,
         }
     },
 
     methods: {
         create() {
             var formData = new FormData();
-            formData.append('title', this.title)
-            formData.append('subvue', this.subvue)
-            formData.append('content', this.content)
+            formData.append('name', this.name)
+            formData.append('days', this.days)
+            formData.append('description', this.description)
             console.log(formData)
-
-            // If photo has been set
-            if (this.image) {
-                formData.append('image', this.image, this.image.name)
-            }
 
             PostsService.create(formData)
                 .then(response => {
                     this.$router.push({
-                        name: 'Post',
+                        name: 'Task',
                         params: { id: response.data.id, subvuePermalink: response.data.subvue.permalink }
                     })
                 })
