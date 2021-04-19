@@ -1,6 +1,9 @@
 <template lang="html">
   <div class="home container">
-    <h1>Hello, {{ $store.state.user.username }}</h1>
+    <div class = "welcome">
+      <h1 v-if="!$store.state.isUserLoggedIn"> Welcome to Productify </h1>
+    </div>
+    <h1 v-if="$store.state.isUserLoggedIn">Hello, {{ $store.state.user.username }}</h1>
     <!-- <PostPreview v-for="post in posts" :key="post.id" :post="post">
       {{ post.title }}
     </PostPreview> -->
@@ -36,4 +39,8 @@ export default {
 </script>
 
 <style lang="css">
+  .welcome {
+    text-align: center;
+  }
+
 </style>

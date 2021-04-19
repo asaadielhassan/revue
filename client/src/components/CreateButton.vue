@@ -43,6 +43,6 @@ export default {
 }
 
 .create-button:hover {
-   background-color: rgb(194, 118, 56)
+   background-color: rgb(194, 118, 56);
 }
 </style>

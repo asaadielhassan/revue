@@ -83,6 +83,7 @@ export default {
 </script>
 
 <style scoped lang="css">
+
 form {
     max-width: 1500px;
     width: 100%;
