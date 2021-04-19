@@ -175,7 +175,7 @@ class Habit(Document):
         entry = {
             "user":user,
             "name":self.name,
-            "description":self.description(),
+            "description":self.description,
             "days":self.days,
             "start_Day":self.startDay,
             "start_Date":self.startDate,
