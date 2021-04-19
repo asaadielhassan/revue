@@ -39,9 +39,9 @@
             }
         },
 
-        mounted(){
-            this.$refs.title.focus();
-        }
+        // mounted(){
+        //     this.$refs.title.focus();
+        // }
     }
 
 </script>

@@ -40,7 +40,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "create" */ '@/views/CreatePost')
   },
   {
-    path: '/about',
+    path: '/aboutus',
     name: 'AboutUs',
     component: () => import(/* webpackChunkName: "about" */ '@/views/Aboutus')
   },
