@@ -49,6 +49,11 @@ const routes = [
     name: 'CreateSubvue',
     component: () => import(/* webpackChunkName: "createsubvue" */ '@/views/CreateSubvue')
   },
+  {
+    path: '/gridfeed',
+    name: 'GridFeed',
+    component: () => import(/* webpackChunkName: "gridfeed" */ '@/views/GridFeed')
+  }
 ]
 
 const router = createRouter({

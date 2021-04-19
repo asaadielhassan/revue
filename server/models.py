@@ -77,6 +77,17 @@ class Subvue(Document):
         }
 
         return data
+class insertHabit(Document, habits):
+    def to_public_json(self, user)
+        entry = {
+            "user":user,
+            "name":habit.getName(),
+            "days":habit.getDays(),
+            "start_Day":habit.getStartDay(),
+            "start_Date":habit.getStartDate(),
+            "end_Date":habit.getEndDate()
+        }
+        return entry
 
 
 class Post(Document):

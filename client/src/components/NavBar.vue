@@ -2,7 +2,9 @@
   <nav>
     <router-link class="title" :to="{ name: 'Home', params: {} }">Productify</router-link>
     <router-link  :to="{ name: 'AboutUs' }">About</router-link>
-    <div class="dropdown"  @click="isOpen = !isOpen">
+    <router-link  :to="{ name: 'GridFeed' }">Grid Feed</router-link>
+    
+    <!--<div class="dropdown"  @click="isOpen = !isOpen">
       <button class="dropbtn">
         Grid Feed
         <svg viewBox="0 0 1030 638" width="10">
@@ -23,7 +25,7 @@
       </div>
       </transition>
       
-    </div>
+    </div>-->
 
     <router-link v-if="!$store.state.isUserLoggedIn" style="float:right" :to="{ name: 'SignUp', params: {} }">Sign Up</router-link>
     <router-link v-if="!$store.state.isUserLoggedIn" style="float:right" :to="{ name: 'Login', params: {} }">Login</router-link>

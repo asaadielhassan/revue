@@ -1,12 +1,3 @@
-        <TaskPreview 
-            :taskName = "task[0]" 
-            :taskLength = "task[1]" 
-            :taskTimescale = "task[2]" 
-            :taskColor = "task[3]" 
-            :taskCompletion = "task[4]">
-        </TaskPreview>
-
-
 <template lang="html">
   <div class="create-task container">
     <h1>Create Task</h1>
