@@ -3,6 +3,7 @@ import datetime
 class habits:
     timer = datetime.datetime.now()
     name = ""
+    description = ""
     days = []
     streak = 0
     start_Day = 0
@@ -25,9 +26,10 @@ class habits:
         12 : 31
     }
 
-    def habits(self, name, days, end_Date):
+    def habits(self, name, description, days, end_Date):
         self.name = name
         self.days = days
+        self.description = description
         self.start_Date = [timer.strftime("%m"), timer.strftime("%d")] #A list with the month in mm format and day in the dd format
         self.start_Day = int(timer.day())
         self.curr_Day = int(timer.day())
@@ -38,6 +40,12 @@ class habits:
 
     def getName(self):
         return self.name
+
+    def setDescription(self, description):
+        self.description = description
+
+    def getDescription(self):
+        return self.description
 
     def setDays(self, days):
         self.days = days
