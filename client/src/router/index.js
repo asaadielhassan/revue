@@ -37,7 +37,7 @@ const routes = [
   {
     path: '/create',
     name: 'CreatePost',
-    component: () => import(/* webpackChunkName: "create" */ '@/views/CreatePost')
+    component: () => import(/* webpackChunkName: "create" */ '@/views/CreateTask')
   },
   {
     path: '/about',
