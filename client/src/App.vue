@@ -1,10 +1,10 @@
 <template>
     <div id="app">
-        <!-- <NavBar /> -->
-        <header>
+        <NavBar />
+        <!-- <header>
              <NewNav />
              
-        </header>
+        </header> -->
        
         <main>
             <router-view />
@@ -13,14 +13,14 @@
 </template>
 
 <script>
-// import NavBar from '@/components/NavBar'
-import NewNav from '@/components/NewNav'
+import NavBar from '@/components/NavBar'
+// import NewNav from '@/components/NewNav'
 
 export default {
     name: 'app',
     components: { 
-        // NavBar
-        NewNav
+        NavBar
+        // NewNav
     },
 
     created() {

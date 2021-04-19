@@ -26,9 +26,13 @@ a {
 }
 
 .button {
-    background: rgb(23, 92, 93) !important;
+    background: #783937FF !important;
     color: white;
     cursor: pointer;
+}
+
+.button:hover {
+    background: rgb(95, 46, 44) !important;
 }
 
 .error {
