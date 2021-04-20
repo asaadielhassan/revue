@@ -14,6 +14,7 @@ def insertHabit(user, habit):
     entry = {
         "user":user,
         "name":habit.getName(),
+        "description":habit.getDescription(),
         "days":habit.getDays(),
         "start_Day":habit.getStartDay(),
         "start_Date":habit.getStartDate(),
