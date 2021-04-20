@@ -37,10 +37,10 @@ const routes = [
   {
     path: '/create',
     name: 'CreatePost',
-    component: () => import(/* webpackChunkName: "create" */ '@/views/CreatePost')
+    component: () => import(/* webpackChunkName: "create" */ '@/views/CreateTask')
   },
   {
-    path: '/about',
+    path: '/aboutus',
     name: 'AboutUs',
     component: () => import(/* webpackChunkName: "about" */ '@/views/Aboutus')
   },
@@ -49,6 +49,11 @@ const routes = [
     name: 'CreateSubvue',
     component: () => import(/* webpackChunkName: "createsubvue" */ '@/views/CreateSubvue')
   },
+  {
+    path: '/gridfeed',
+    name: 'GridFeed',
+    component: () => import(/* webpackChunkName: "gridfeed" */ '@/views/GridFeed')
+  }
 ]
 
 const router = createRouter({

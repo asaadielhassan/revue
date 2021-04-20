@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="create-post container">
-    <h1>Create Post</h1>
+  <div class="create-task container">
+    <h1>Create Task</h1>
     <form @submit.prevent="create" enctype="multipart/form-data">
       <p class="error">{{ error }}</p>
       <input v-model="title" type="text" placeholder="Title" ref="title">
@@ -21,68 +21,31 @@
   </div>
 </template>
 
+
 <script>
-import PostsService from '@/services/PostsService'
+    import TaskPreview from '@/components/TaskPreview'
 
-export default {
-    name: 'create-post',
+    export default {
+        name: 'TaskScheduler',
 
-    data() {
-        return {
-            title: '',
-            subvue: '',
-            content: '',
-            error: null,
-            image: null,
-            imagePreview: null,
-        }
-    },
+        components: {TaskPreview},
 
-    methods: {
-        create() {
-            var formData = new FormData();
-            formData.append('title', this.title)
-            formData.append('subvue', this.subvue)
-            formData.append('content', this.content)
-            console.log(formData)
-
-            // If photo has been set
-            if (this.image) {
-                formData.append('image', this.image, this.image.name)
+        data(){
+            return{ 
+                tasks: [],
+                title: "Schedule A Task:"
+                task: ["Workout Daily", 30, "day", "#ffffff", .1]
             }
-
-            PostsService.create(formData)
-                .then(response => {
-                    this.$router.push({
-                        name: 'Post',
-                        params: { id: response.data.id, subvuePermalink: response.data.subvue.permalink }
-                    })
-                })
-                .catch(error => {
-                    this.error = error.response.data.error
-                })
         },
 
-        fileChanged(e) {
-            this.image = e.target.files[0]
-
-            // Show image preview
-            var reader = new FileReader();
-            reader.onload = (e) => {
-                this.imagePreview = e.target.result;
-            };
-            reader.readAsDataURL(this.image);
+        mounted(){
+            this.$refs.title.focus();
         }
-    },
-
-    mounted() {
-        // Focus title
-        this.$refs.title.focus();
     }
-}
+
 </script>
 
-<style scoped lang="css">
+<style>
 form {
     max-width: 1500px;
     width: 100%;
@@ -148,4 +111,23 @@ textarea {
     background-size: cover;
     background-position: center;
 }
+#devs {
+    position: relative;
+    display: block;
+    width: 86%;
+    margin: auto;
+    padding: 25px;
+}
+ 
+#title{
+    font-size: 3em;
+    margin-top: 25px;
+    color: steelblue;
+}
+
+
 </style>
+
+
+
+

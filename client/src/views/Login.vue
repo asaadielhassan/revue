@@ -49,7 +49,7 @@ export default {
 
 <style scoped lang="css">
 .login {
-  background: rgb(23, 92, 93);
+  background: rgb(235, 151, 102);
   background-image: url(/static/newsletter-login.jpg);
   background-position: center;
   background-size: cover;
@@ -91,4 +91,5 @@ input {
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
+
 </style>

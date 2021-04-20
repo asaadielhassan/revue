@@ -45,8 +45,8 @@ nav .menu-item svg {
 }
 nav .menu-item .sub-menu {
   position: absolute;
-  background-color: rgb(206, 131, 88);
-  top: calc(100% + 9px);
+  background-color: rgb(243, 175, 136);
+  top: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
   width: max-content;
