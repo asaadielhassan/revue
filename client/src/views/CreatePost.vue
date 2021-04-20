@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="create-post container">
-    <h1>Create Post</h1>
+    <h1>Add Task</h1>
     <form @submit.prevent="create" enctype="multipart/form-data">
       <p class="error">{{ error }}</p>
       <input v-model="title" type="text" placeholder="Title" ref="title">
@@ -83,6 +83,7 @@ export default {
 </script>
 
 <style scoped lang="css">
+
 form {
     max-width: 1500px;
     width: 100%;

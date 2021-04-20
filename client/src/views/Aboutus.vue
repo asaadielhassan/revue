@@ -1,6 +1,6 @@
 <template lang = "html">
     <div class="container">
-        <h2 id = "title">{{title}}</h2>
+        <h1 id = "title">{{title}}</h1>
         <div id = "devs">
             <DevCard 
                 v-for = "([name, title, img, intro]) in devs" 
@@ -39,9 +39,9 @@
             }
         },
 
-        mounted(){
-            this.$refs.title.focus();
-        }
+        // mounted(){
+        //     this.$refs.title.focus();
+        // }
     }
 
 </script>
@@ -56,9 +56,10 @@
 }
  
 #title{
-    font-size: 3em;
+    /* font-size: 3em; */
     margin-top: 25px;
-    color: steelblue;
+    /* color: steelblue; */
+    color: black;
 }
 
 

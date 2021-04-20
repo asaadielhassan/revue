@@ -31,7 +31,7 @@ export default {
   align-items: center;
   bottom: 3%;
   right: 1%;
-  background-color: rgb(23, 92, 93);
+  background-color: rgb(235, 151, 102);
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -40,5 +40,9 @@ export default {
   box-shadow: 2px 2px 10px rgba(10, 10, 10, 0.3);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+}
+
+.create-button:hover {
+   background-color: rgb(194, 118, 56);
 }
 </style>
