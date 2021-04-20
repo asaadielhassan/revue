@@ -5,8 +5,8 @@
       <p class="error">{{ error }}</p>
       <input v-model="name" type="text" placeholder="Grid Name" ref="title">
       <input v-model="days" type="number" placeholder="Number of days">
-      <label for="public"> Should this grid be public?</label>
-      <input v-model="public" style="display: inline" name="public" type="checkbox">
+      <label for="pub1"> Should this grid be public?</label>
+      <input v-model="pub1" style="display: inline" name="pub1" type="checkbox">
        
        
       <textarea v-model="description" name="name" placeholder="Description" rows="10" cols="80"></textarea>
