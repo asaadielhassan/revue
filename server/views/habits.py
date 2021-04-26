@@ -7,6 +7,7 @@ from models import Post, User, Comment, Subvue, Habit
 from mongoengine.errors import ValidationError
 from authorization import login_required
 
+global counter = 0
 
 @app.route("/api/habits")
 def habit_index():
@@ -19,13 +20,12 @@ def habit_index():
 def habit_create(username: str):
     schema = Schema({
         "title": And(str, len, error="Title not specified"),
-        "habit": And(str, len, error="Grid not specified"),
-        "content": And(str, len, error="Content not specified"),
+        "numDays": And(str, len, error="Days not selected"),
+
     })
     form = {
         "title": request.form.get("title"),
-        "habit": request.form.get("habit"),
-        "content": request.form.get("content")
+        "numDays": request.form.get("numDays"),
     }
     validated = schema.validate(form)
 
@@ -35,21 +35,20 @@ def habit_create(username: str):
     #    return jsonify({"error": f"Subvue '{subvue_permalink}' not found"}), 404
 
     user = User.objects(username=username).first()
-    days = request.form.get("days")
-    start_Day = request.form.get("startDay")
-    start_Date = request.form.get("startDate")
-    end_Date = request.form.get("endDate")
 
     habit = Habit(
         user=user,
-        name=validated["title"],
-        description=validated["content"],
-        days = days,
-        startDay = start_Day,
-        startDate = start_Date,
-        endDate = end_Date
+        id = counter
+        name= validated["title"],
+        description="",
+        days = numDays,
+        repeat = [],
+        self.start_Date = [timer.strftime("%m"), timer.strftime("%d")], #A list with the month in mm format and day in the dd format
+        self.start_Day = int(timer.day()),
+        self.curr_Day = int(timer.day()),
+        endDate = []
     ).save()
-
+    counter += 1
     return jsonify(post.to_public_json())
 
 
@@ -95,7 +94,7 @@ def habits_delete(username: str, id: str):
     if username != habit.user.username:
         return jsonify({"error": "You are not the creator of the grid"}), 401
 
-    post_info = habit.to_public_json()
+    habit_info = habit.to_public_json()
 
     habit.delete()
 
