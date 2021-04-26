@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import PostsService from '@/services/PostsService'
+import TasksService from '@/services/TasksService'
 
 export default {
     name: 'create-task',
@@ -26,6 +26,7 @@ export default {
             name: '',
             days: null,
             description: '',
+            pub1: null;
             error: null,
         }
     },
@@ -35,6 +36,7 @@ export default {
             var formData = new FormData();
             formData.append('name', this.name)
             formData.append('days', this.days)
+            formData.append('pub1', this.pub1)
             formData.append('description', this.description)
             console.log(formData)
 
