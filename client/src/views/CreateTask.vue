@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import TasksService from '@/services/TasksService'
+import HabitsService from '@/services/HabitsService'
 
 export default {
     name: 'create-task',
@@ -24,9 +24,9 @@ export default {
     data() {
         return {
             name: '',
-            days: null,
+            days: 0,
             description: '',
-            pub1: null;
+            pub1: false,
             error: null,
         }
     },
@@ -40,11 +40,11 @@ export default {
             formData.append('description', this.description)
             console.log(formData)
 
-            PostsService.create(formData)
+            HabitsService.create(formData)
                 .then(response => {
                     this.$router.push({
-                        name: 'Task',
-                        params: { id: response.data.id, subvuePermalink: response.data.subvue.permalink }
+                        name: 'Habit',
+                        params: { id: response.data.id }
                     })
                 })
                 .catch(error => {

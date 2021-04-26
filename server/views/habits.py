@@ -14,17 +14,15 @@ def habit_index():
     return jsonify([habit.to_public_json() for hab in habit])
 
 
-@app.route("/api/habits", methods=["HABIT"])
+@app.route("/api/habits", methods=["POST"])
 @login_required
 def habit_create(username: str):
     schema = Schema({
         "title": And(str, len, error="Title not specified"),
-        "habit": And(str, len, error="Grid not specified"),
         "content": And(str, len, error="Content not specified"),
     })
     form = {
         "title": request.form.get("title"),
-        "habit": request.form.get("habit"),
         "content": request.form.get("content")
     }
     validated = schema.validate(form)
