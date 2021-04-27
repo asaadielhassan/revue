@@ -115,6 +115,7 @@ nav .dropbtn svg {
 
 nav a:hover, .dropdown:hover .dropbtn {
   background-color: rgb(194, 118, 56);
+   transition: all 0.2s ease-in-out;
 }
 
 .dropdown-content {
@@ -137,6 +138,7 @@ nav a:hover, .dropdown:hover .dropbtn {
 
 .dropdown-content a:hover {
   background-color: rgb(194, 118, 56);
+   transition: all 0.2s ease-in-out;
 }
 
 .dropdown:hover .dropdown-content {
