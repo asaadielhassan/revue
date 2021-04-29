@@ -171,7 +171,7 @@ class Habit(Document):
         else:
             return self.streak
             
-    def to_public_json(self, user)
+    def to_public_json(self, user):
         entry = {
             "user":user,
             "name":self.name,
