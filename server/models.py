@@ -102,7 +102,7 @@ class Habit(Document):
         12 : 31
     }
 
-    def habits(self, name, days, end_Date):
+    def Habit(self, name, days, end_Date):
         self.name = name
         self.days = days
         self.start_Date = [timer.strftime("%m"), timer.strftime("%d")] #A list with the month in mm format and day in the dd format
@@ -183,6 +183,36 @@ class Habit(Document):
         }
         return entry
 
+class Grid(Document):
+    name = StringField(max_length=120, required=True)
+    habit = Habit
+    sizeCols = 0
+    sizeRows = 0
+    Overflow = 0
+    numDays = 0
+
+    def Grid(self, name, days, end_Date, numDays):
+        self.name = name
+        self.habit = Habit.Habit(name, days, end_Date)
+        self.numDays = numDays
+        self.sizeCols = 7
+        self.sizeRows = round(numDays/7)
+        self.Overflow = numDays % 7
+
+    def to_public_json(self, user)
+        entry = {
+            "user":user,
+            "name":self.name,
+            "description":habit.description,
+            "days":habit.days,
+            "start_Day":habit.startDay,
+            "start_Date":habit.startDate,
+            "end_Date":habit.endDate
+            "sizeCols" = self.sizeCols
+            "sizeRows" = self.sizeRows
+            "Overflow" = self.Overflow
+        }
+        return entry
 
 class Post(Document):
     title = StringField(max_length=120, required=True)
