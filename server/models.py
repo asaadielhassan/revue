@@ -3,7 +3,7 @@ import hashlib
 import os
 
 from mongoengine import (
-    connect, Document, EmailField, StringField, ListField, ReferenceField, DateTimeField, EmbeddedDocument,
+    connect, Document, IntField, BooleanField, EmailField, StringField, ListField, ReferenceField, DateTimeField, EmbeddedDocument,
     EmbeddedDocumentField, CASCADE
 )
 
@@ -78,14 +78,17 @@ class Subvue(Document):
 
         return data
 class Habit(Document):
-    timer = datetime.datetime.now()
-    name = ""
-    days = []
+
+    name = StringField(max_length=120, required=True)
+    description = StringField(max_length=5000)
+    user = ReferenceField(User, reverse_delete_rule=CASCADE)
+    num_Days = IntField(default = 30)
+    repeat = ListField(StringField(max_length=10))
     streak = 0
-    start_Day = 0
-    curr_Day = 0
-    curr_Date = [timer.strftime("%m"), timer.strftime("%d")]
-    end_Date = []
+    is_public = BooleanField(default=True)
+    start_Date = DateTimeField(required=True, default=datetime.datetime.now())
+    curr_Date = DateTimeField(required=True, default=datetime.datetime.now())
+    end_Date = DateTimeField(required=True, default=datetime.datetime.now())
     complete = 0
     monthDict = {
         1 : 31,
@@ -163,7 +166,7 @@ class Habit(Document):
         if(self.timer.day > self.curr_Date):
             if(self.complete == 1):
                 self.streak += 1
-                self.curr_Day += 1
+                self.curr_Date += 1
                 self.complete = 0
                 return self.streak
             else:
@@ -171,15 +174,18 @@ class Habit(Document):
         else:
             return self.streak
             
-    def to_public_json(self, user):
+    def to_public_json(self):
         entry = {
-            "user":user,
+            "id": str(self.id),
+            "user":self.user,
             "name":self.name,
-            "description":self.description,
-            "days":self.days,
-            "start_Day":self.startDay,
-            "start_Date":self.startDate,
-            "end_Date":self.endDate
+            "description": self.description,
+            "num_Days": self.num_Days,
+            "repeat": self.repeat,
+            "start_Date":self.start_Date,
+            "curr_Date": self.curr_Date, 
+            "end_Date":self.end_Date, 
+            "is_public": self.is_public
         }
         return entry
 

@@ -47,6 +47,7 @@ from views.authentication import *  # noqa
 from views.posts import *  # noqa
 from views.subvues import *  # noqa
 from views.users import *  # noqa
+from views.habits import * # noqa
 
 import errors  # noqa
 

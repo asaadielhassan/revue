@@ -4,6 +4,7 @@ from flask import abort
 
 import config
 
+id = 0
 
 def save_image(image):
     if not image.filename.endswith(tuple([".jpg", ".png"])):
@@ -13,3 +14,7 @@ def save_image(image):
     filename = str(uuid.uuid4()).replace("-", "") + "." + image.filename.split(".")[-1]
     image.save(os.path.join(config.image_upload_folder, filename))
     return filename
+
+def get_current_id():
+    id + 1
+    return id

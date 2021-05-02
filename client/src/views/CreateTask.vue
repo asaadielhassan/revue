@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import PostsService from '@/services/PostsService'
+import HabitsService from '@/services/HabitsService'
 
 export default {
     name: 'create-task',
@@ -24,31 +24,46 @@ export default {
     data() {
         return {
             name: '',
-            days: null,
+            days: 0,
             description: '',
+            pub1: false,
+
             error: null,
         }
     },
 
+
+
     methods: {
         create() {
-            var formData = new FormData();
-            formData.append('name', this.name)
-            formData.append('days', this.days)
-            formData.append('description', this.description)
-            console.log(formData)
 
-            PostsService.create(formData)
+            HabitsService.create({
+                title: this.name,
+                numDays: this.days,
+                description: this.description,
+                pub: this.pub1,
+                id : 1 
+            })
+            // var formData = new FormData();
+            // formData.append('title', this.name)
+            // formData.append('numDays', this.days)
+            // formData.append('pub1', this.pub1)
+            // formData.append('description', this.description)
+            // console.log(formData)
+
+            // HabitsService.create(formData)
                 .then(response => {
                     this.$router.push({
-                        name: 'Task',
-                        params: { id: response.data.id, subvuePermalink: response.data.subvue.permalink }
+                        name: 'Habit',
+                        params: {id: response.data.id}
                     })
                 })
                 .catch(error => {
                     this.error = error.response.data.error
                 })
         },
+
+
 
         fileChanged(e) {
             this.image = e.target.files[0]
