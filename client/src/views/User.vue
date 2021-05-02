@@ -6,6 +6,10 @@
         <PostPreview hideUser="true" v-for="post in posts" :key="post.id" :post="post">
           {{ post.title }}
         </PostPreview>
+
+        <PostPreview hideUser="true" v-for="grid in grids" :key="grid.id" :grid="grid">
+          {{ grid.title }}
+        </PostPreview>
       </div>
     </div>
 
@@ -24,6 +28,7 @@ import PostPreview from '@/components/PostPreview'
 import CreateButton from '@/components/CreateButton'
 import PostsService from '@/services/PostsService'
 import UsersService from '@/services/UsersService'
+import HabitsService from '@/services/HabitsService'
 
 export default {
   name: 'user',
@@ -34,6 +39,7 @@ export default {
     return {
       username: this.$route.params.username,
       posts: [],
+      grids: [],
       hashedEmail: ''
     }
   },
@@ -54,6 +60,11 @@ export default {
       UsersService.username(this.username)
         .then(response => {
           this.hashedEmail = response.data.hashedEmail
+        })
+
+      HabitsService.user(this.username)
+        .then(response => {
+          this.grids = response.data
         })
 
       PostsService.user(this.username)

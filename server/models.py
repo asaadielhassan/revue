@@ -177,9 +177,9 @@ class Habit(Document):
             "name":self.name,
             "description":self.description,
             "days":self.days,
-            "start_Day":self.startDay,
-            "start_Date":self.startDate,
-            "end_Date":self.endDate
+            "start_Day":self.start_Day,
+            "start_Date":self.start_Date,
+            "end_Date":self.end_Date
         }
         return entry
 
