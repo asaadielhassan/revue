@@ -6,8 +6,10 @@ from flask import jsonify, request
 from models import Post, User, Comment, Subvue, Habit
 from mongoengine.errors import ValidationError
 from authorization import login_required
+from time import gmtime, strftime
+from datetime import timedelta, datetime
 
-global counter = 0
+# counter = 1
 
 @app.route("/api/habits")
 def habit_index():
@@ -15,19 +17,18 @@ def habit_index():
     return jsonify([habit.to_public_json() for hab in habit])
 
 
-@app.route("/api/habits", methods=["HABIT"])
+@app.route("/api/habits", methods=["POST"])
 @login_required
 def habit_create(username: str):
-    schema = Schema({
-        "title": And(str, len, error="Title not specified"),
-        "numDays": And(str, len, error="Days not selected"),
+    if not request.json:
+        return jsonify({"error": "Data not specified"}), 409
+    if not request.json.get("title"):
+        return jsonify({"error": "Name not specified"}), 409
+    if not request.json.get("description"):
+        return jsonify({"error": "Description not specified"}), 409
+    if not request.json.get("numDays"):
+        return jsonify({"error": "numDays not specified"}), 409
 
-    })
-    form = {
-        "title": request.form.get("title"),
-        "numDays": request.form.get("numDays"),
-    }
-    validated = schema.validate(form)
 
     #subvue_permalink = validated["habit"]
     #subvue = Subvue.objects(permalink__iexact=subvue_permalink).first()
@@ -38,18 +39,16 @@ def habit_create(username: str):
 
     habit = Habit(
         user=user,
-        id = counter
-        name= validated["title"],
-        description="",
-        days = numDays,
+        name= request.json.get("title"),
+        description=request.json.get("description"),
+        num_Days = request.json.get("numDays"),
         repeat = [],
-        self.start_Date = [timer.strftime("%m"), timer.strftime("%d")], #A list with the month in mm format and day in the dd format
-        self.start_Day = int(timer.day()),
-        self.curr_Day = int(timer.day()),
-        endDate = []
+        start_Date =  datetime.now(), #A list with the month in mm format and day in the dd format
+        curr_Date = datetime.now(),
+        end_Date = datetime.now() + timedelta(days=int(request.json.get("numDays"))),
+        is_public = request.json.get("pub")
     ).save()
-    counter += 1
-    return jsonify(post.to_public_json())
+    return jsonify(habit.to_public_json())
 
 
 @app.route("/api/habits/id/<string:id>")
