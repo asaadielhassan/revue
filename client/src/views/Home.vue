@@ -13,16 +13,28 @@
     <!-- <CreateButton></CreateButton> -->
   <!-- </div> -->
   <div class = "container">
+
+    <!-- random image from unsplash that changes daily     -->
+    <div class = "img-container">
+      <img v-if="$store.state.isUserLoggedIn" src="https://source.unsplash.com/featured/daily?motivational,quotes" class = "rnd-img">
+    </div>
+
+    <!-- to do image before logging in  -->
+      <img v-if="!$store.state.isUserLoggedIn" src = "../assets/images/todo.png" class = "feature-img">
+
     <div class = "content">
       <!-- before logging in  -->
+      
+      
       <h1  v-if="!$store.state.isUserLoggedIn"> Welcome to Productify </h1>
 
       <!-- after loggin in  -->
       <h1 v-if="$store.state.isUserLoggedIn">Hello, {{ $store.state.user.username }}</h1>
 
       <!-- description of productivity  -->
+      
       <p> 
-        Add tasks, create beautiful grids, and see your productivity come to life with Productify!<br>
+        Add tasks, create beautiful grids, and see your productivity come to life with Productify! <br>
         Make your grids public and share them with the world! <br>
         Check out the grid feed to see what users have been creating. <br> <br>
       </p>
@@ -36,14 +48,10 @@
       <p v-if="!$store.state.isUserLoggedIn" >
         Already have an account?
       </p>
-      <router-link v-if="!$store.state.isUserLoggedIn" class = "btn" :to="{ name: 'Login', params: {} }">Log in</router-link>
 
-      <!-- to do image before logging in  -->
-      <img v-if="!$store.state.isUserLoggedIn" src = "../assets/images/todo.png" class = "feature-img">
-      <!-- TODO: add a random image after logging in  -->
+      <router-link v-if="!$store.state.isUserLoggedIn" class = "btn" :to="{ name: 'Login', params: {} }">Log in</router-link>       
 
       <router-link v-if="$store.state.isUserLoggedIn" class = "btn" :to="{ name: 'CreatePost'}">Create A New Grid</router-link>
-      <!-- <br> -->
       <router-link v-if="$store.state.isUserLoggedIn" class = "btn2" :to="{ name: 'User', params: { username: $store.state.user.username } }">View My Current Grids</router-link>  
     </div> 
   </div>
@@ -89,7 +97,7 @@ export default {
     background-position: center;
     background-size: cover;
     padding-left: 5%;
-    padding-right: 5%;
+    padding-right: 10%;
     box-sizing: border-box;
     position: relative;
   }
@@ -112,7 +120,7 @@ export default {
 
   .content{
     margin-left: 5%;
-    margin-top: 18%;
+    margin-top: 19%;
   }
 
   .content .btn{
@@ -154,9 +162,23 @@ export default {
   .feature-img {
     height: 90%;
     position: absolute;
-    bottom: 0;
+    margin-top: 50px;
     right: 200px;
   }
+
+  .img-container {
+    width: 575px;
+    height: 575px;
+    margin-top: 150px;
+    float: right;
+  }
+
+  .rnd-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
 
   
   
