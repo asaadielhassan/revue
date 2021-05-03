@@ -7,9 +7,16 @@
           {{ post.title }}
         </PostPreview> -->
 
-        <div v-for = "grid in grids" :key="grid.id">
-          <h1> {{grid.name}} </h1>
-        </div>
+        <!-- <div class = "post-preview"> -->
+          <div v-for = "grid in grids" :key="grid.id">
+            <h1> {{grid.name}} </h1>
+            <div class = "body-area">
+              <h3><slot></slot></h3>
+              <span>created on {{ grid.start_Date }}</span>
+              <span>&nbsp;by <span class="blue-highlight">u/{{ grid.user.username }}</span></span>
+            </div>
+          </div>
+        <!-- </div> -->
 
       </div>
     </div>
@@ -83,14 +90,15 @@ export default {
 
 <style lang="css">
 .container {
-  width: 80%;
-  float: left;
+  width: 70%;
+  float: right;
 }
 
 .info {
-  width: 20%;
-  float: right;
+  width: 15%;
+  float: left;
   padding-top: 20px;
+  padding-left: 50px;
 }
 
 .info img {
@@ -106,5 +114,22 @@ export default {
 
 .post-preview:first-of-type {
   margin-top: 25px;
+}
+
+.post-preview {
+    height: 150px;
+    margin-bottom: 25px;
+    display: block;
+    color: black;
+    display: grid;
+    grid-template-columns: 3fr 1fr 15fr;
+}
+
+.body-area {
+    color: black;
+}
+
+.blue-highlight {
+    color: rgb(48, 99, 219);
 }
 </style>
