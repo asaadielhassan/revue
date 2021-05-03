@@ -16,7 +16,7 @@
 
     <!-- random image from unsplash that changes daily     -->
     <div class = "img-container">
-      <img v-if="$store.state.isUserLoggedIn" src="https://source.unsplash.com/featured/daily?motivational,quotes" class = "rnd-img">
+      <img v-if="$store.state.isUserLoggedIn" src="https://source.unsplash.com/featured/daily?motivation,quotes" class = "rnd-img">
     </div>
 
     <!-- to do image before logging in  -->
