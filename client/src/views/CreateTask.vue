@@ -27,36 +27,41 @@ export default {
             days: 0,
             description: '',
             pub1: false,
-
+            username: this.$route.params.username,
             error: null,
+        }
+    },
+    watch: {
+        $route() {
+            this.username = this.$route.params.username
+            this.fetchData()
         }
     },
 
 
-
     methods: {
+   
         create() {
 
-            HabitsService.create({
-                title: this.name,
-                numDays: this.days,
-                description: this.description,
-                pub: this.pub1,
-                id : 1 
-            })
-            // var formData = new FormData();
-            // formData.append('title', this.name)
-            // formData.append('numDays', this.days)
-            // formData.append('pub1', this.pub1)
-            // formData.append('description', this.description)
-            // console.log(formData)
+            // HabitsService.create({
+            //     name: this.name,
+            //     num_Days: this.days,
+            //     description: this.description,
+            //     is_public: this.pub1,
+            // }
+            var formData = new FormData();
+            formData.append('name', this.name)
+            formData.append('num_Days', this.days)
+            formData.append('is_public', this.pub1)
+            formData.append('description', this.description)
+            console.log(formData)
 
-            // HabitsService.create(formData)
+            HabitsService.create(formData)
                 .then(response => {
-                    this.$router.push({
-                        name: 'Habit',
-                        params: {id: response.data.id}
-                    })
+                     this.$router.push({
+                         name: 'Habit',
+                         params: {username: response.data.username}
+                     })
                 })
                 .catch(error => {
                     this.error = error.response.data.error

@@ -18,16 +18,14 @@ def habit_index():
 @app.route("/api/habits", methods=["HABIT"])
 @login_required
 def habit_create(username: str):
-    schema = Schema({
-        "title": And(str, len, error="Title not specified"),
-        "numDays": And(str, len, error="Days not selected"),
-
-    })
-    form = {
-        "title": request.form.get("title"),
-        "numDays": request.form.get("numDays"),
-    }
-    validated = schema.validate(form)
+    if not request.json:
+        return jsonify({"error": "Data not specified"}), 409
+    if not request.json.get("title"):
+        return jsonify({"error": "Name not specified"}), 409
+    if not request.json.get("description"):
+        return jsonify({"error": "Description not specified"}), 409
+    if not request.json.get("num_Days"):
+        return jsonify({"error": "numDays not specified"}), 409
 
     #subvue_permalink = validated["habit"]
     #subvue = Subvue.objects(permalink__iexact=subvue_permalink).first()
@@ -49,17 +47,16 @@ def habit_create(username: str):
         # endDate = []
 
         user = user,
-        name= request.json.get("title"),
+        name = request.json.get("name"),
         description=request.json.get("description"),
-        num_Days = request.json.get("numDays"),
+        num_Days = request.json.get("num_Days"),
         repeat = [],
         start_Date =  datetime.now(), #A list with the month in mm format and day in the dd format
         curr_Date = datetime.now(),
         end_Date = datetime.now() + timedelta(days=int(request.json.get("numDays"))),
-        is_public = request.json.get("pub")
+        is_public = request.json.get("is_public")
     ).save()
-    counter += 1
-    return jsonify(post.to_public_json())
+    return jsonify(habit.to_public_json())
 
 
 @app.route("/api/habits/id/<string:id>")
