@@ -3,20 +3,21 @@
 
     <div class="container">
       <div class="post-list">
-        <PostPreview hideUser="true" v-for="post in posts" :key="post.id" :post="post">
+        <!-- <PostPreview hideUser="true" v-for="post in posts" :key="post.id" :post="post">
           {{ post.title }}
-        </PostPreview>
+        </PostPreview> -->
 
-        <PostPreview hideUser="true" v-for="grid in grids" :key="grid.id" :grid="grid">
-          {{ grid.title }}
-        </PostPreview>
+        <div v-for = "grid in grids" :key="grid.id">
+          <h1> {{grid.name}} </h1>
+        </div>
+
       </div>
     </div>
 
     <div class="info">
       <img :src="'https://www.gravatar.com/avatar/' + this.hashedEmail + '?s=200'" />
       <h1>{{ username }}</h1>
-      <div class="len-posts button">{{ posts.length }} Posts</div>
+      <div class="len-posts button">{{ grids.length }} Grids</div>
     </div>
 
     <CreateButton></CreateButton>
@@ -24,21 +25,21 @@
 </template>
 
 <script>
-import PostPreview from '@/components/PostPreview'
+// import PostPreview from '@/components/PostPreview'
 import CreateButton from '@/components/CreateButton'
-import PostsService from '@/services/PostsService'
+// import PostsService from '@/services/PostsService'
 import UsersService from '@/services/UsersService'
 import HabitsService from '@/services/HabitsService'
 
 export default {
   name: 'user',
 
-  components: { CreateButton, PostPreview },
+  components: { CreateButton },
 
   data() {
     return {
       username: this.$route.params.username,
-      posts: [],
+      // posts: [],
       grids: [],
       hashedEmail: ''
     }
@@ -67,14 +68,15 @@ export default {
           this.grids = response.data
         })
 
-      PostsService.user(this.username)
-        .then(response => {
-          this.posts = response.data
-        })
+      // PostsService.user(this.username)
+      //   .then(response => {
+      //     this.posts = response.data
+      //   })
         .catch(e => {
           this.error = e.response.data.error
         })
     }
+    
   }
 }
 </script>

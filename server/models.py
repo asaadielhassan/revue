@@ -179,13 +179,6 @@ class Habit(Document):
             "id": str(self.id),
             "user":self.user,
             "name":self.name,
-<<<<<<< HEAD
-            "description":self.description,
-            "days":self.days,
-            "start_Day":self.start_Day,
-            "start_Date":self.start_Date,
-            "end_Date":self.end_Date
-=======
             "description": self.description,
             "num_Days": self.num_Days,
             "repeat": self.repeat,
@@ -193,7 +186,6 @@ class Habit(Document):
             "curr_Date": self.curr_Date, 
             "end_Date":self.end_Date, 
             "is_public": self.is_public
->>>>>>> Development
         }
         return entry
 
