@@ -1,5 +1,9 @@
 <template lang="html">
-  <div class="post">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="post">
     <div class="main-container">
       <div class="body container">
         <div class="content">
@@ -24,84 +28,182 @@
              on {{ created }}
           </h3>
 
-          <p v-html="content"></p>
-
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
+<h3>  &nbsp; M  &nbsp;  T  &nbsp;   W  &nbsp;&nbsp;  T &nbsp;&nbsp;   F  &nbsp;&nbsp;  S  &nbsp;</h3>
 <div class="row">
   <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
   </div>
   <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
   </div>
   <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
   </div>
   <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
   </div>
   <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
   </div>
   <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
   </div>
-</div>
-
-<div class="row">
-  <div class="box">
-  </div>
-  <div class="box">
-  </div>
-  <div class="box">
-  </div>
-  <div class="box">
-  </div>
-  <div class="box">
-  </div>
-  <div class="box">
-  </div>
-</div>
-
-<div class="row">
-  <div class="box">
-  </div>
-  <div class="box">
-  </div>
-  <div class="box">
-  </div>
-  <div class="box">
-  </div>
-  <div class="box">
-  </div>
-  <div class="box">
-  </div>
+  
 </div>
 
 <div class="row">
   <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
   </div>
   <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
   </div>
   <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
   </div>
   <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
   </div>
   <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
   </div>
   <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
   </div>
 </div>
+
+<div class="row">
+  <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
+  </div>
+  <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
+  </div>
+  <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
+  </div>
+  <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
+  </div>
+  <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
+  </div>
+  <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
+  </div>
+  <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
+  </div>
+  <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
+  </div>
+  <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
+  </div>
+  <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
+  </div>
+  <div class="box">
+  <label class="container">
+  <input type="checkbox">
+  <span class="checkmark"></span>
+	</label>
+  </div>
 </div>
 
 
-          <i class="post-id">ID {{ id }}</i>
-        </div>
-      </div>
+<i class="post-id">ID {{ id }}</i>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+</body>
+
 
     <SubvueInfo class="subvue-info" v-if="subvue" :subvue="subvue"></SubvueInfo>
     <!-- Only show it if data was fetched -->
     <div v-else></div>
 
     <CreateButton></CreateButton>
-  </div>
+  
 </template>
 
 <script>
@@ -192,6 +294,39 @@ export default {
   content: "";
   display: table;
   clear: both;
+}
+
+.container {
+  display: block;
+  position: relative;
+  
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: -10px -10px -10px -10px;
+  height: 29px;
+  width: 29px;
+  background-color: #eee;
+}
+
+.box .container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.box .container input:checked ~ .checkmark {
+  background-color: #2196F3;
 }
 
 .body {
