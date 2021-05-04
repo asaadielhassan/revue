@@ -24,7 +24,7 @@ export default {
     data() {
         return {
             name: '',
-            days: 0,
+            days: null,
             description: '',
             pub1: false,
             username: this.$route.params.username,
@@ -84,7 +84,7 @@ export default {
 
     mounted() {
         // Focus title
-        this.$refs.title.focus();
+        this.$refs.name.focus();
     }
 }
 </script>

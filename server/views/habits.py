@@ -3,7 +3,7 @@ from schema import Schema, And
 import utils
 from app import app
 from flask import jsonify, request
-from models import Post, User, Comment, Subvue, Habit
+from models import User, Comment, Subvue, Habit
 from mongoengine.errors import ValidationError
 from authorization import login_required
 
@@ -20,7 +20,7 @@ def habit_index():
 def habit_create(username: str):
     if not request.json:
         return jsonify({"error": "Data not specified"}), 409
-    if not request.json.get("title"):
+    if not request.json.get("name"):
         return jsonify({"error": "Name not specified"}), 409
     if not request.json.get("description"):
         return jsonify({"error": "Description not specified"}), 409
@@ -64,13 +64,13 @@ def habits_item(id: str):
     try:
         habit = Habit.objects(pk=id).first()
 
-        # If post has alreay been deleted
-        if not post:
+        # If habit has alreay been deleted
+        if not habit:
             raise ValidationError
     except ValidationError:
-        return jsonify({"error": "Post not found"}), 404
+        return jsonify({"error": "habit not found"}), 404
 
-    return jsonify(post.to_public_json())
+    return jsonify(habit.to_public_json())
 
 
 @app.route("/api/habits/user/<string:username>")
@@ -91,13 +91,13 @@ def habits_delete(username: str, id: str):
     try:
         habit = Habit.objects(pk=id).first()
 
-        # If post has alreay been deleted
+        # If habit has alreay been deleted
         if not habit:
             raise ValidationError
     except ValidationError:
         return jsonify({"error": "Grid not found"}), 404
 
-    # Check whether action was called by creator of the post
+    # Check whether action was called by creator of the habit
     if username != habit.user.username:
         return jsonify({"error": "You are not the creator of the grid"}), 401
 
@@ -108,22 +108,22 @@ def habits_delete(username: str, id: str):
     return jsonify(habit_info)
 
 
-#@app.route("/api/posts/<string:id>/comments", methods=["POST"])
+#@app.route("/api/habits/<string:id>/comments", methods=["habit"])
 #@login_required
-#def posts_create_comment(username: str, id: str):
+#def habits_create_comment(username: str, id: str):
 #    schema = Schema({
 #        "content": And(str, len, error="No content specified")
 #    })
 #    validated = schema.validate(request.json)
 #
 #    try:
-#        post = Post.objects(pk=id).first()
+#        habit = habit.objects(pk=id).first()
 #    except ValidationError:
-#        return jsonify({"error": "Post not found"}), 404
+#        return jsonify({"error": "habit not found"}), 404
 #
 #    user = User.objects(username=username).first()
-#    comments = post.comments
+#    comments = habit.comments
 #    comments.append(Comment(user=user, content=validated["content"]))
-#    post.save()
+#    habit.save()
 #
-#    return jsonify([comment.to_public_json() for comment in post.comments][::-1])
+#    return jsonify([comment.to_public_json() for comment in habit.comments][::-1])
