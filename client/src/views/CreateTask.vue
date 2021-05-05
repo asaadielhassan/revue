@@ -27,16 +27,16 @@ export default {
             days: null,
             description: '',
             pub1: false,
-            username: this.$route.params.username,
+            // username: this.$route.params.username,
             error: null,
         }
     },
-    watch: {
-        $route() {
-            this.username = this.$route.params.username
-            this.fetchData()
-        }
-    },
+    // watch: {
+    //     $route() {
+    //         this.username = this.$route.params.username
+    //         this.fetchData()
+    //     }
+    // },
 
 
     methods: {
@@ -60,7 +60,7 @@ export default {
                 .then(response => {
                      this.$router.push({
                          name: 'Habit',
-                         params: {username: response.data.username}
+                         params: {id: response.data.id}
                      })
                 })
                 .catch(error => {

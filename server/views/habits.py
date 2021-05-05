@@ -1,6 +1,7 @@
-from schema import Schema, And
+from schema import Schema, And, Use
 
 import utils
+from datetime import datetime, timedelta
 from app import app
 from flask import jsonify, request
 from models import User, Comment, Subvue, Habit
@@ -15,17 +16,31 @@ def habit_index():
     return jsonify([habit.to_public_json() for hab in habit])
 
 
-@app.route("/api/habits", methods=["HABIT"])
+@app.route("/api/habits", methods=["POST"])
 @login_required
 def habit_create(username: str):
-    if not request.json:
-        return jsonify({"error": "Data not specified"}), 409
-    if not request.json.get("name"):
-        return jsonify({"error": "Name not specified"}), 409
-    if not request.json.get("description"):
-        return jsonify({"error": "Description not specified"}), 409
-    if not request.json.get("num_Days"):
-        return jsonify({"error": "numDays not specified"}), 409
+    # if not request.json:
+    #     return jsonify({"error": "Data not specified"}), 409
+    # if not request.json.get("name"):
+    #     return jsonify({"error": "Name not specified"}), 409
+    # if not request.json.get("description"):
+    #     return jsonify({"error": "Description not specified"}), 409
+    # if not request.json.get("num_Days"):
+    #     return jsonify({"error": "numDays not specified"}), 409
+
+    schema = Schema({
+        "name": And(str, len, error="Namr not specified"),
+        "description": And(str, len, error="description not specified"),
+        "num_Days": And(Use(int), error="Number of Days not specified"),
+        "is_public": And(Use(bool), error="not specified"),
+    })
+    form = {
+        "name": request.form.get("name"),
+        "description": request.form.get("description"),
+        "num_Days": request.form.get("num_Days"),
+        "is_public": request.form.get("is_public")
+    }
+    validated = schema.validate(form)
 
     #subvue_permalink = validated["habit"]
     #subvue = Subvue.objects(permalink__iexact=subvue_permalink).first()
@@ -47,14 +62,14 @@ def habit_create(username: str):
         # endDate = []
 
         user = user,
-        name = request.json.get("name"),
-        description=request.json.get("description"),
-        num_Days = request.json.get("num_Days"),
+        name = validated["name"],
+        description=validated["description"],
+        num_Days = validated["num_Days"],
         repeat = [],
         start_Date =  datetime.now(), #A list with the month in mm format and day in the dd format
         curr_Date = datetime.now(),
-        end_Date = datetime.now() + timedelta(days=int(request.json.get("numDays"))),
-        is_public = request.json.get("is_public")
+        end_Date = datetime.now() + timedelta(days=int(validated["num_Days"])),
+        is_public = validated["is_public"]
     ).save()
     return jsonify(habit.to_public_json())
 

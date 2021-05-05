@@ -105,13 +105,13 @@ class Habit(Document):
         12 : 31
     }
 
-    def habits(self, name, days, end_Date):
-        self.name = name
-        self.days = days
-        self.start_Date = [timer.strftime("%m"), timer.strftime("%d")] #A list with the month in mm format and day in the dd format
-        self.start_Day = int(timer.day())
-        self.curr_Day = int(timer.day())
-        self.end_Date = end_Date
+    # def habits(self, name, days, end_Date):
+    #     self.name = name
+    #     self.days = days
+    #     self.start_Date = [timer.strftime("%m"), timer.strftime("%d")] #A list with the month in mm format and day in the dd format
+    #     self.start_Day = int(timer.day())
+    #     self.curr_Day = int(timer.day())
+    #     self.end_Date = end_Date
 
     def setName(self, name):
         self.name = name
