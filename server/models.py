@@ -205,20 +205,19 @@ class Grid(Document):
         self.sizeRows = round(numDays/7)
         self.Overflow = numDays % 7
 
-    def to_public_json(self, user)
-        entry = {
-            "user":user,
-            "name":self.name,
-            "description":habit.description,
-            "days":habit.days,
-            "start_Day":habit.startDay,
-            "start_Date":habit.startDate,
-            "end_Date":habit.endDate
-            "sizeCols" = self.sizeCols
-            "sizeRows" = self.sizeRows
-            "Overflow" = self.Overflow
-        }
-        return entry
+  #  def to_public_json(self, user):
+   #     entry = {
+    #        "user":user,
+     #       "name":self.name,
+      #      "description":habit.description,
+       #     "days":habit.days,
+        ##   "start_Date":habit.startDate,
+          #  "end_Date":habit.endDate
+           # "sizeCols" = self.sizeCols
+           # "sizeRows" = self.sizeRows
+           # "Overflow" = self.Overflow
+       # }
+       # return entry
 
 class Post(Document):
     title = StringField(max_length=120, required=True)
