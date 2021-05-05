@@ -3,7 +3,7 @@
     <h1>Make a Grid</h1>
     <form @submit.prevent="create" enctype="multipart/form-data">
       <p class="error">{{ error }}</p>
-      <input v-model="name" type="text" placeholder="Grid Name" ref="title">
+      <input v-model="name" type="text" placeholder="Grid Name" ref="name">
       <input v-model="days" type="number" placeholder="Number of days">
       <label for="pub1"> Should this grid be public?</label>
       <input v-model="pub1" style="display: inline" name="pub1" type="checkbox">
@@ -70,16 +70,16 @@ export default {
 
 
 
-        fileChanged(e) {
-            this.image = e.target.files[0]
+        // fileChanged(e) {
+        //     this.image = e.target.files[0]
 
-            // Show image preview
-            var reader = new FileReader();
-            reader.onload = (e) => {
-                this.imagePreview = e.target.result;
-            };
-            reader.readAsDataURL(this.image);
-        }
+        //     // Show image preview
+        //     var reader = new FileReader();
+        //     reader.onload = (e) => {
+        //         this.imagePreview = e.target.result;
+        //     };
+        //     reader.readAsDataURL(this.image);
+        // }
     },
 
     mounted() {
