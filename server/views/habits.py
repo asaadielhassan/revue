@@ -3,7 +3,7 @@ from schema import Schema, And
 import utils
 from app import app
 from flask import jsonify, request
-from models import Post, User, Comment, Subvue, Habit
+from models import User, Comment, Subvue, Habit
 from mongoengine.errors import ValidationError
 from authorization import login_required
 
@@ -18,16 +18,14 @@ def habit_index():
 @app.route("/api/habits", methods=["HABIT"])
 @login_required
 def habit_create(username: str):
-    schema = Schema({
-        "title": And(str, len, error="Title not specified"),
-        "numDays": And(str, len, error="Days not selected"),
-
-    })
-    form = {
-        "title": request.form.get("title"),
-        "numDays": request.form.get("numDays"),
-    }
-    validated = schema.validate(form)
+    if not request.json:
+        return jsonify({"error": "Data not specified"}), 409
+    if not request.json.get("name"):
+        return jsonify({"error": "Name not specified"}), 409
+    if not request.json.get("description"):
+        return jsonify({"error": "Description not specified"}), 409
+    if not request.json.get("num_Days"):
+        return jsonify({"error": "numDays not specified"}), 409
 
     #subvue_permalink = validated["habit"]
     #subvue = Subvue.objects(permalink__iexact=subvue_permalink).first()
@@ -49,17 +47,16 @@ def habit_create(username: str):
         # endDate = []
 
         user = user,
-        name= request.json.get("title"),
+        name = request.json.get("name"),
         description=request.json.get("description"),
-        num_Days = request.json.get("numDays"),
+        num_Days = request.json.get("num_Days"),
         repeat = [],
         start_Date =  datetime.now(), #A list with the month in mm format and day in the dd format
         curr_Date = datetime.now(),
         end_Date = datetime.now() + timedelta(days=int(request.json.get("numDays"))),
-        is_public = request.json.get("pub")
+        is_public = request.json.get("is_public")
     ).save()
-    counter += 1
-    return jsonify(post.to_public_json())
+    return jsonify(habit.to_public_json())
 
 
 @app.route("/api/habits/id/<string:id>")
@@ -67,13 +64,13 @@ def habits_item(id: str):
     try:
         habit = Habit.objects(pk=id).first()
 
-        # If post has alreay been deleted
-        if not post:
+        # If habit has alreay been deleted
+        if not habit:
             raise ValidationError
     except ValidationError:
-        return jsonify({"error": "Post not found"}), 404
+        return jsonify({"error": "habit not found"}), 404
 
-    return jsonify(post.to_public_json())
+    return jsonify(habit.to_public_json())
 
 
 @app.route("/api/habits/user/<string:username>")
@@ -94,13 +91,13 @@ def habits_delete(username: str, id: str):
     try:
         habit = Habit.objects(pk=id).first()
 
-        # If post has alreay been deleted
+        # If habit has alreay been deleted
         if not habit:
             raise ValidationError
     except ValidationError:
         return jsonify({"error": "Grid not found"}), 404
 
-    # Check whether action was called by creator of the post
+    # Check whether action was called by creator of the habit
     if username != habit.user.username:
         return jsonify({"error": "You are not the creator of the grid"}), 401
 
@@ -111,22 +108,22 @@ def habits_delete(username: str, id: str):
     return jsonify(habit_info)
 
 
-#@app.route("/api/posts/<string:id>/comments", methods=["POST"])
+#@app.route("/api/habits/<string:id>/comments", methods=["habit"])
 #@login_required
-#def posts_create_comment(username: str, id: str):
+#def habits_create_comment(username: str, id: str):
 #    schema = Schema({
 #        "content": And(str, len, error="No content specified")
 #    })
 #    validated = schema.validate(request.json)
 #
 #    try:
-#        post = Post.objects(pk=id).first()
+#        habit = habit.objects(pk=id).first()
 #    except ValidationError:
-#        return jsonify({"error": "Post not found"}), 404
+#        return jsonify({"error": "habit not found"}), 404
 #
 #    user = User.objects(username=username).first()
-#    comments = post.comments
+#    comments = habit.comments
 #    comments.append(Comment(user=user, content=validated["content"]))
-#    post.save()
+#    habit.save()
 #
-#    return jsonify([comment.to_public_json() for comment in post.comments][::-1])
+#    return jsonify([comment.to_public_json() for comment in habit.comments][::-1])
