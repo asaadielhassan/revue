@@ -12,8 +12,9 @@ from authorization import login_required
 
 @app.route("/api/habits")
 def habit_index():
-    habit = Habit.objects().order_by("-created")
-    return jsonify([habit.to_public_json() for hab in habit])
+    habits = Habit.objects().order_by("-created")
+
+    return jsonify([habit.to_public_json() for habit in habits])
 
 
 @app.route("/api/habits", methods=["POST"])
