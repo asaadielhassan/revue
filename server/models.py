@@ -105,7 +105,6 @@ class Habit(Document):
         12 : 31
     }
 
-<<<<<<< HEAD
     def Habit(self, name, days, end_Date):
         self.name = name
         self.days = days
@@ -113,7 +112,6 @@ class Habit(Document):
         self.start_Day = int(timer.day())
         self.curr_Day = int(timer.day())
         self.end_Date = end_Date
-=======
     # def habits(self, name, days, end_Date):
     #     self.name = name
     #     self.days = days
@@ -121,7 +119,6 @@ class Habit(Document):
     #     self.start_Day = int(timer.day())
     #     self.curr_Day = int(timer.day())
     #     self.end_Date = end_Date
->>>>>>> a47a38dd3ae208d12c978281facecc26c3bb9fde
 
     def setName(self, name):
         self.name = name
@@ -201,33 +198,35 @@ class Habit(Document):
 
 class Grid(Document):
     name = StringField(max_length=120, required=True)
-    habit = Habit
-    sizeCols = 0
-    sizeRows = 0
-    Overflow = 0
-    numDays = 0
+    #habit = ReferenceField(required = True)
+    sizeCols = IntField(default = 0)
+    sizeRows = IntField(default = 0)
+    Overflow = IntField(default = 0)
+    numDays = IntField(default = 0, required = True)
+    dateData = ListField(ListField(max_length=3, required = True))
 
     def Grid(self, name, days, end_Date, numDays):
         self.name = name
-        self.habit = Habit.Habit(name, days, end_Date)
+        #self.habit = Habit.Habit(name, days, end_Date)
         self.numDays = numDays
         self.sizeCols = 7
         self.sizeRows = round(numDays/7)
         self.Overflow = numDays % 7
 
-  #  def to_public_json(self, user):
-   #     entry = {
-    #        "user":user,
-     #       "name":self.name,
-      #      "description":habit.description,
-       #     "days":habit.days,
-        ##   "start_Date":habit.startDate,
-          #  "end_Date":habit.endDate
-           # "sizeCols" = self.sizeCols
-           # "sizeRows" = self.sizeRows
-           # "Overflow" = self.Overflow
-       # }
-       # return entry
+    def to_public_json(self):
+        entry = {
+            "user":user,
+            "name":self.name,
+            "description":habit.description,
+            "days":habit.days,
+            "start_Date":habit.startDate,
+            "end_Date":habit.endDate,
+            "sizeCols": self.sizeCols,
+            "sizeRows": self.sizeRows,
+            "Overflow": self.Overflow,
+            "dateData": self.dateData
+        }
+        return entry
 
 class Post(Document):
     title = StringField(max_length=120, required=True)
