@@ -177,7 +177,10 @@ class Habit(Document):
     def to_public_json(self):
         entry = {
             "id": str(self.id),
-            "user":self.user,
+            "user": {
+                "id": str(self.user.id),
+                "username": self.user.username
+            },
             "name":self.name,
             "description": self.description,
             "num_Days": self.num_Days,
