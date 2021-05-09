@@ -7,7 +7,7 @@
             <h3><slot></slot></h3>
             <p>
 
-                <span>on {{ grid.start_Date }}</span>
+                <span>on {{ grid.string_start }}</span>
                 <span v-show="!hideUser">&nbsp;by <span class="blue-highlight">u/{{ grid.user.username }}</span></span>
             </p>
             <p>{{ description }}</p>

@@ -3,11 +3,11 @@
 
     <div class="container">
       <div class="post-list">
-        <!-- <PostPreview hideUser="true" v-for="post in posts" :key="post.id" :post="post">
-          {{ post.title }}
-        </PostPreview> -->
+        <GridPreview v-for="grid in grids" :key="grid.id" :grid="grid">
+          {{ grid.name }}
+        </GridPreview> -->
 
-        <!-- <div class = "post-preview"> -->
+        <!-- <div class = "post-preview">
           <div v-for = "grid in grids" :key="grid.id">
             <h1> {{grid.name}} </h1>
             <div class = "body-area">
@@ -16,7 +16,7 @@
               <span>&nbsp;by <span class="blue-highlight">u/{{ grid.user.username }}</span></span>
             </div>
           </div>
-        <!-- </div> -->
+        </div> -->
 
       </div>
     </div>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-// import PostPreview from '@/components/PostPreview'
+import GridPreview from '@/components/GridPreview'
 import CreateButton from '@/components/CreateButton'
 // import PostsService from '@/services/PostsService'
 import UsersService from '@/services/UsersService'
@@ -41,7 +41,7 @@ import HabitsService from '@/services/HabitsService'
 export default {
   name: 'user',
 
-  components: { CreateButton },
+  components: { CreateButton, GridPreview },
 
   data() {
     return {

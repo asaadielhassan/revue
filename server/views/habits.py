@@ -12,8 +12,7 @@ from authorization import login_required
 
 @app.route("/api/habits")
 def habit_index():
-    habits = Habit.objects().order_by("-created")
-
+    habits = Habit.objects().order_by("-name")
     return jsonify([habit.to_public_json() for habit in habits])
 
 
@@ -67,7 +66,8 @@ def habit_create(username: str):
         description=validated["description"],
         num_Days = validated["num_Days"],
         repeat = [],
-        start_Date =  datetime.now(), #A list with the month in mm format and day in the dd format
+        start_Date =  datetime.now(),
+        string_start = datetime.strftime(datetime.now(), "%B %m, %Y"), #A list with the month in mm format and day in the dd format
         curr_Date = datetime.now(),
         end_Date = datetime.now() + timedelta(days=int(validated["num_Days"])),
         is_public = validated["is_public"]
