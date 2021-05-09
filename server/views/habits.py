@@ -11,7 +11,7 @@ from authorization import login_required
 # global counter = 0
 
 @app.route("/api/habits")
-def habit_index():
+def habits_index():
     habits = Habit.objects().order_by("-created")
 
     return jsonify([habit.to_public_json() for habit in habits])
@@ -19,7 +19,7 @@ def habit_index():
 
 @app.route("/api/habits", methods=["POST"])
 @login_required
-def habit_create(username: str):
+def habits_create(username: str):
     # if not request.json:
     #     return jsonify({"error": "Data not specified"}), 409
     # if not request.json.get("name"):
