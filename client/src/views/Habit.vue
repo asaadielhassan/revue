@@ -25,7 +25,7 @@
             <router-link :to="{ name: 'User', params: { 'username': user.username } }">
               {{ user.username }}
             </router-link>
-             on {{ start_Date }}
+             on {{ string_start }}
           </h3>
 
 <h3>  &nbsp; M  &nbsp;  T  &nbsp;   W  &nbsp;&nbsp;  T &nbsp;&nbsp;   F  &nbsp;&nbsp;  S  &nbsp;</h3>
@@ -221,6 +221,7 @@ export default {
       user: "",
       /* subvue: null, */
       start_Date: "",
+      string_start: "",
       description: "",
       /* comments: [], */
       /* upvotes: [], */
@@ -254,6 +255,7 @@ export default {
         this.name = response.data.name;
         this.user = response.data.user;
         this.start_Date = response.data.start_Date;
+        this.string_start = response.data.string_start;
         this.description = response.data.description;
         /*this.comments = response.data.comments
                 this.upvotes = response.data.upvotes
