@@ -2,12 +2,13 @@
   <div class="user">
 
     <div class="container">
+    <h2>{{ username }}'s Grids</h2>
       <div class="post-list">
-        <!-- <PostPreview hideUser="true" v-for="post in posts" :key="post.id" :post="post">
-          {{ post.title }}
-        </PostPreview> -->
+        <GridPreview v-for="grid in grids" :key="grid.id" :grid="grid">
+          {{ grid.name }}
+        </GridPreview> -->
 
-        <!-- <div class = "post-preview"> -->
+        <!-- <div class = "post-preview">
           <div v-for = "grid in grids" :key="grid.id">
             <h1> {{grid.name}} </h1>
             <div class = "body-area">
@@ -16,7 +17,7 @@
               <span>&nbsp;by <span class="blue-highlight">u/{{ grid.user.username }}</span></span>
             </div>
           </div>
-        <!-- </div> -->
+        </div> -->
 
       </div>
     </div>
@@ -32,7 +33,7 @@
 </template>
 
 <script>
-// import PostPreview from '@/components/PostPreview'
+import GridPreview from '@/components/GridPreview'
 import CreateButton from '@/components/CreateButton'
 // import PostsService from '@/services/PostsService'
 import UsersService from '@/services/UsersService'
@@ -41,7 +42,7 @@ import HabitsService from '@/services/HabitsService'
 export default {
   name: 'user',
 
-  components: { CreateButton },
+  components: { CreateButton, GridPreview },
 
   data() {
     return {
@@ -92,6 +93,7 @@ export default {
 .container {
   width: 70%;
   float: right;
+  text-align: left;
 }
 
 .info {
@@ -114,6 +116,12 @@ export default {
 
 .post-preview:first-of-type {
   margin-top: 25px;
+}
+
+h2{
+  font-size: 2.0em;
+  margin-left: 200px;
+  margin-top: 100px;
 }
 
 .post-preview {
