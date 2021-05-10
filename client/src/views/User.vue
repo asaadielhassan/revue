@@ -2,6 +2,7 @@
   <div class="user">
 
     <div class="container">
+    <h2>{{ username }}'s Grids</h2>
       <div class="post-list">
         <GridPreview v-for="grid in grids" :key="grid.id" :grid="grid">
           {{ grid.name }}
@@ -92,6 +93,7 @@ export default {
 .container {
   width: 70%;
   float: right;
+  text-align: left;
 }
 
 .info {
@@ -114,6 +116,12 @@ export default {
 
 .post-preview:first-of-type {
   margin-top: 25px;
+}
+
+h2{
+  font-size: 2.0em;
+  margin-left: 200px;
+  margin-top: 100px;
 }
 
 .post-preview {

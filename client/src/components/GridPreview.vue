@@ -40,19 +40,29 @@ p {
 }
 
 .grid-preview {
+    text-align: left;
     height: 150px;
     margin-bottom: 25px;
     display: block;
-    color: black;
     display: grid;
-    grid-template-columns: 3fr 1fr 15fr;
+    grid-template-columns: 5fr 1fr 15fr;
 }
 
 
 .body-area {
-    color: black;
+    color: #3B4556;
+    width: 650px;
+    border: 7px double #3B4556;
+    border-left: 16px outset rgba(235, 151, 102, 100);
+    padding: 15px 25px 15px 25px;
+    margin-top: 35px;
+    background-color: #FDF2EC;
 }
-
+h3 {
+    font-size: 1.32em;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
 .blue-highlight {
     color: rgb(48, 99, 219);
 }
