@@ -10,16 +10,28 @@ from authorization import login_required
 
 # global counter = 0
 
+<<<<<<< HEAD
 @app.route("/api/habits")
 def habits_index():
-    habits = Habit.objects().order_by("-created")
+    habits = Habit.objects().order_by("-name")
 
     return jsonify([habit.to_public_json() for habit in habits])
+=======
+@app.route("/api/habits/public")
+def habit_index():
+    pubs = []
+    habits = Habit.objects().order_by("-start_Date")
+    for habit in habits:
+        if habit.is_public == "true":
+            pubs.append(habit.to_public_json())
+    
+    return jsonify(pubs)
+>>>>>>> Development
 
 
 @app.route("/api/habits", methods=["POST"])
 @login_required
-def habits_create(username: str):
+def habit_create(username: str):
     # if not request.json:
     #     return jsonify({"error": "Data not specified"}), 409
     # if not request.json.get("name"):
@@ -33,7 +45,7 @@ def habits_create(username: str):
         "name": And(str, len, error="Namr not specified"),
         "description": And(str, len, error="description not specified"),
         "num_Days": And(Use(int), error="Number of Days not specified"),
-        "is_public": And(Use(bool), error="not specified"),
+        "is_public": And(str, len, error="publicity not specified"),
     })
     form = {
         "name": request.form.get("name"),
@@ -67,7 +79,8 @@ def habits_create(username: str):
         description=validated["description"],
         num_Days = validated["num_Days"],
         repeat = [],
-        start_Date =  datetime.now(), #A list with the month in mm format and day in the dd format
+        start_Date =  datetime.now(),
+        string_start = datetime.strftime(datetime.now(), "%B %m, %Y"), #A list with the month in mm format and day in the dd format
         curr_Date = datetime.now(),
         end_Date = datetime.now() + timedelta(days=int(validated["num_Days"])),
         is_public = validated["is_public"]

@@ -5,10 +5,9 @@
       <p class="error">{{ error }}</p>
       <input v-model="name" type="text" placeholder="Grid Name" ref="name">
       <input v-model="days" type="number" placeholder="Number of days">
-      <label for="pub1"> Should this grid be public?</label>
-      <input v-model="pub1" style="display: inline" name="pub1" type="checkbox">
-       
-       
+      
+      <input type="checkbox" id="checkbox" v-model="checked">
+      <label for="checkbox">{{checked}}</label> 
       <textarea v-model="description" name="name" placeholder="Description" rows="10" cols="80"></textarea>
       <input class="button" type="submit" value="Build My Grid!">
     </form>
@@ -26,7 +25,7 @@ export default {
             name: '',
             days: null,
             description: '',
-            pub1: false,
+            checked: false,
             // username: this.$route.params.username,
             error: null,
         }
@@ -49,10 +48,11 @@ export default {
             //     description: this.description,
             //     is_public: this.pub1,
             // }
+            var shit = this.checked ? "true" : "false"
             var formData = new FormData();
             formData.append('name', this.name)
             formData.append('num_Days', this.days)
-            formData.append('is_public', this.pub1)
+            formData.append('is_public', shit)
             formData.append('description', this.description)
             console.log(formData)
 

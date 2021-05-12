@@ -85,7 +85,7 @@ class Habit(Document):
     num_Days = IntField(default = 30)
     repeat = ListField(StringField(max_length=10))
     streak = 0
-    is_public = BooleanField(default=True)
+    is_public = StringField(requried=True, default="false", max_length=120)
     string_start = StringField(required=True, default=datetime.datetime.strftime(datetime.datetime.now(), "%B %m, %Y"))
     start_Date = DateTimeField(required=True, default=datetime.datetime.now())
     curr_Date = DateTimeField(required=True, default=datetime.datetime.now())
