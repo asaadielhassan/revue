@@ -10,13 +10,6 @@ from authorization import login_required
 
 # global counter = 0
 
-<<<<<<< HEAD
-@app.route("/api/habits")
-def habits_index():
-    habits = Habit.objects().order_by("-name")
-
-    return jsonify([habit.to_public_json() for habit in habits])
-=======
 @app.route("/api/habits/public")
 def habit_index():
     pubs = []
@@ -26,7 +19,6 @@ def habit_index():
             pubs.append(habit.to_public_json())
     
     return jsonify(pubs)
->>>>>>> Development
 
 
 @app.route("/api/habits", methods=["POST"])
