@@ -6,7 +6,7 @@
       <div class="post-list">
         <GridPreview v-for="grid in grids" :key="grid.id" :grid="grid">
           {{ grid.name }}
-        </GridPreview> -->
+        </GridPreview>
 
         <!-- <div class = "post-preview">
           <div v-for = "grid in grids" :key="grid.id">
