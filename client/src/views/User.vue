@@ -89,7 +89,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style css = scoped>
 .container {
   width: 70%;
   float: right;
