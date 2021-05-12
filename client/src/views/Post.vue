@@ -28,164 +28,6 @@
              on {{ created }}
           </h3>
 
-<h3>  &nbsp; M  &nbsp;  T  &nbsp;   W  &nbsp;&nbsp;  T &nbsp;&nbsp;   F  &nbsp;&nbsp;  S  &nbsp;</h3>
-<div class="row">
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  
-</div>
-
-<div class="row">
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-</div>
-
-<div class="row">
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-</div>
-
-<div class="row">
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-</div>
-
 
 <i class="post-id">ID {{ id }}</i>
 
@@ -278,16 +120,26 @@ export default {
   box-sizing: border-box;
 }
 
+table {
+  width:30%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 30px 30px 30px 30px;
+  background-color: white;
+}
+#t01 tr:nth-child(even) {
+ background-color: #eee;
+}
+#t01 tr:nth-child(odd) {
+ background-color: #eee;
+}
+
+
 .box {
-  float: left;
-  width: 35px;
-  padding: 10px;
-  height: 35px;
-  border-style: solid;
-  border-color: black;
-  border-width: 3px;
-  margin: -1px -1px -2px -2px;
-  
   }
 
 .row:after {
@@ -299,7 +151,6 @@ export default {
 .container {
   display: block;
   position: relative;
-  
 }
 
 .container input {
@@ -315,10 +166,11 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  margin: -10px -10px -10px -10px;
-  height: 29px;
-  width: 29px;
+  margin: -25px -12px -30px -18px;
+  height: 50px;
+  width: 50px;
   background-color: #eee;
+  border: 1px solid black;  
 }
 
 .box .container:hover input ~ .checkmark {

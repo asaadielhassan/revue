@@ -85,7 +85,8 @@ class Habit(Document):
     num_Days = IntField(default = 30)
     repeat = ListField(StringField(max_length=10))
     streak = 0
-    is_public = BooleanField(default=True)
+    is_public = StringField(requried=True, default="false", max_length=120)
+    string_start = StringField(required=True, default=datetime.datetime.strftime(datetime.datetime.now(), "%B %m, %Y"))
     start_Date = DateTimeField(required=True, default=datetime.datetime.now())
     curr_Date = DateTimeField(required=True, default=datetime.datetime.now())
     end_Date = DateTimeField(required=True, default=datetime.datetime.now())
@@ -105,6 +106,13 @@ class Habit(Document):
         12 : 31
     }
 
+    def Habit(self, name, days, end_Date):
+        self.name = name
+        self.days = days
+        self.start_Date = [timer.strftime("%m"), timer.strftime("%d")] #A list with the month in mm format and day in the dd format
+        self.start_Day = int(timer.day())
+        self.curr_Day = int(timer.day())
+        self.end_Date = end_Date
     # def habits(self, name, days, end_Date):
     #     self.name = name
     #     self.days = days
@@ -185,6 +193,7 @@ class Habit(Document):
             "description": self.description,
             "num_Days": self.num_Days,
             "repeat": self.repeat,
+            "string_start": self.string_start,
             "start_Date":self.start_Date,
             "curr_Date": self.curr_Date, 
             "end_Date":self.end_Date, 
@@ -192,6 +201,40 @@ class Habit(Document):
         }
         return entry
 
+class Grid(Document):
+    name = StringField(max_length=120, required=True)
+    #habit = ReferenceField(required = True)
+    sizeCols = IntField(default = 0)
+    sizeRows = IntField(default = 0)
+    Overflow = IntField(default = 0)
+    numDays = IntField(default = 0, required = True)
+    dateData = ListField(ListField(max_length=3, required = True))
+
+    def Grid(self, name, days, end_Date, numDays):
+        self.name = name
+        #self.habit = Habit.Habit(name, days, end_Date)
+        self.numDays = numDays
+        self.sizeCols = 7
+        self.sizeRows = round(numDays/7)
+        self.Overflow = numDays % 7
+
+    def to_public_json(self):
+        entry = {
+            "user": {
+                "id": str(self.user.id),
+                "username": self.user.username
+            },
+            "name":self.name,
+            "description":habit.description,
+            "days":habit.days,
+            "start_Date":habit.startDate,
+            "end_Date":habit.endDate,
+            "sizeCols": self.sizeCols,
+            "sizeRows": self.sizeRows,
+            "Overflow": self.Overflow,
+            "dateData": self.dateData
+        }
+        return entry
 
 class Post(Document):
     title = StringField(max_length=120, required=True)

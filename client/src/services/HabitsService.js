@@ -2,7 +2,7 @@ import Api from '@/services/Api'
 
 export default {
   index() {
-    return Api().get('habits')
+    return Api().get('habits/public')
   },
 
   create(habit) {
