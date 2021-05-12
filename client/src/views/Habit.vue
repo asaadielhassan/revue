@@ -27,10 +27,12 @@
             </router-link>
              on {{ start_Date }}
           </h3>
+
+
 <br>
+<h4>Click on each day's checkbox once you completed the goal. Good luck on your goal pursuit!</h4>
 <br>
-<h3>Good luck on your goal pursuit!</h3>
-<br>
+
 <table id="t01">
 
 <tr>
