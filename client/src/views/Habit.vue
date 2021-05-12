@@ -33,6 +33,13 @@
 <h4>Click on each day's checkbox once you completed the goal. Good luck on your goal pursuit!</h4>
 <br>
 
+<h3>by
+            <router-link :to="{ name: 'User', params: { 'username': user.username } }">
+              {{ habit.description }}
+            </router-link>
+             on {{ string_start }}
+          </h3>
+
 <table id="t01">
 
 <tr>
