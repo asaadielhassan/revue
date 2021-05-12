@@ -11,18 +11,15 @@ from authorization import login_required
 # global counter = 0
 
 @app.route("/api/habits")
-def habit_index():
-    habits = Habit.objects().order_by("-name")
-<<<<<<< HEAD
+def habits_index():
+    habits = Habit.objects().order_by("-created")
 
-=======
->>>>>>> a1781abad79f462c872a2538dbe1a1cb577598b2
     return jsonify([habit.to_public_json() for habit in habits])
 
 
 @app.route("/api/habits", methods=["POST"])
 @login_required
-def habit_create(username: str):
+def habits_create(username: str):
     # if not request.json:
     #     return jsonify({"error": "Data not specified"}), 409
     # if not request.json.get("name"):
@@ -70,8 +67,7 @@ def habit_create(username: str):
         description=validated["description"],
         num_Days = validated["num_Days"],
         repeat = [],
-        start_Date =  datetime.now(),
-        string_start = datetime.strftime(datetime.now(), "%B %m, %Y"), #A list with the month in mm format and day in the dd format
+        start_Date =  datetime.now(), #A list with the month in mm format and day in the dd format
         curr_Date = datetime.now(),
         end_Date = datetime.now() + timedelta(days=int(validated["num_Days"])),
         is_public = validated["is_public"]
