@@ -225,10 +225,6 @@ class Grid(Document):
                 "username": self.user.username
             },
             "name":self.name,
-            "description":habit.description,
-            "days":habit.days,
-            "start_Date":habit.startDate,
-            "end_Date":habit.endDate,
             "sizeCols": self.sizeCols,
             "sizeRows": self.sizeRows,
             "Overflow": self.Overflow,
