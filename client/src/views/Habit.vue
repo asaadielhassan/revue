@@ -28,173 +28,243 @@
              on {{ string_start }}
           </h3>
 
-<h3>  &nbsp; M  &nbsp;  T  &nbsp;   W  &nbsp;&nbsp;  T &nbsp;&nbsp;   F  &nbsp;&nbsp;  S  &nbsp;</h3>
-<div class="row">
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
+
+<br>
+<h4>Click on each day's checkbox once you completed the goal. Good luck on your goal pursuit!</h4>
+<br>
+
+<table id="t01">
+
+<tr>
+    <th>M</th>
+    <th>T</th> 
+    <th>W</th>
+    <th>T</th> 
+    <th>F</th>
+    <th>S</th> 
+    <th>S</th>
+</tr>
+<tr>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div>
+</td>
+<td><div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+</tr>
+
+<tr>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div>
+</td>
+<td><div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+    
+</tr>
+
+<tr>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div>
+</td>
+<td><div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+    
+</tr>
+
+<tr>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div>
+</td>
+<td><div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+<td>
+<div class="box">
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div></td>
+    
+</tr>
   
-</div>
+</table>
 
-<div class="row">
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-</div>
-
-<div class="row">
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-</div>
-
-<div class="row">
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-  <div class="box">
-  <label class="container">
-  <input type="checkbox">
-  <span class="checkmark"></span>
-	</label>
-  </div>
-</div>
-
-
-<i class="post-id">ID {{ id }}</i>
+<br>
+<i class="post-id">ID: {{ id }}</i>
 
 </div>
 </div>
 </div>
 </div>
 
- 
 </body>
 
 
@@ -279,15 +349,28 @@ export default {
   box-sizing: border-box;
 }
 
+table {
+  width: 30%;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 30px 30px 30px 30px;
+  background-color: white;
+}
+#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+#t01 tr:nth-child(odd) {
+  background-color: #eee;
+}
+
 .box {
-  float: left;
-  width: 35px;
-  padding: 10px;
-  height: 35px;
-  border-style: solid;
-  border-color: black;
-  border-width: 3px;
-  margin: -1px -1px -2px -2px;
 }
 
 .row:after {
@@ -313,10 +396,11 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  margin: -10px -10px -10px -10px;
-  height: 29px;
-  width: 29px;
+  margin: -25px -12px -30px -18px;
+  height: 50px;
+  width: 50px;
   background-color: #eee;
+  border: 1px solid black;
 }
 
 .box .container:hover input ~ .checkmark {

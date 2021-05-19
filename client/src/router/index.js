@@ -30,7 +30,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "post" */ '@/views/Post')
   },
   {
-    path: '/u/:id',
+    path: '/p/:id',
     name: 'Habit',
     component: () => import(/* webpackChunkName: "habit" */ '@/views/Habit')
   },

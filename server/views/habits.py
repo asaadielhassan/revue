@@ -10,10 +10,15 @@ from authorization import login_required
 
 # global counter = 0
 
-@app.route("/api/habits")
+@app.route("/api/habits/public")
 def habit_index():
-    habits = Habit.objects().order_by("-name")
-    return jsonify([habit.to_public_json() for habit in habits])
+    pubs = []
+    habits = Habit.objects().order_by("-start_Date")
+    for habit in habits:
+        if habit.is_public == "true":
+            pubs.append(habit.to_public_json())
+    
+    return jsonify(pubs)
 
 
 @app.route("/api/habits", methods=["POST"])
@@ -32,7 +37,7 @@ def habit_create(username: str):
         "name": And(str, len, error="Namr not specified"),
         "description": And(str, len, error="description not specified"),
         "num_Days": And(Use(int), error="Number of Days not specified"),
-        "is_public": And(Use(bool), error="not specified"),
+        "is_public": And(str, len, error="publicity not specified"),
     })
     form = {
         "name": request.form.get("name"),
