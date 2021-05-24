@@ -297,6 +297,8 @@ export default {
       /* upvotes: [], */
       /* downvotes: [], */
       deleteVerify: false,
+      habit_data: [],
+      checkboxes: [],
 
       /* newCommentContent: '', */
       /* errorCreateComment: null */
@@ -317,8 +319,10 @@ export default {
         this.deleteVerify = true;
       }
     },
+    check_Boxes(){
+      
+  }
   },
-
   mounted() {
     HabitsService.item(this.id)
       .then((response) => {
@@ -327,6 +331,7 @@ export default {
         this.start_Date = response.data.start_Date;
         this.string_start = response.data.string_start;
         this.description = response.data.description;
+        this.habit_data = response.data.habit_data;
         /*this.comments = response.data.comments
                 this.upvotes = response.data.upvotes
                 this.downvotes = response.data.downvotes
@@ -335,8 +340,18 @@ export default {
       .catch((e) => {
         this.error = e.response.data.error;
       });
-  },
+
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        var i = 0
+          for (var checkbox of checkboxes) {
+            if (this.habit_data[i] == "true"){
+            checkbox.checked = true;
+            }
+            i++;
+          }
+    },
 };
+  
 </script>
 
 <style scoped lang="css">

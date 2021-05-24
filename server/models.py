@@ -198,7 +198,7 @@ class Habit(Document):
             "start_Date":self.start_Date,
             "curr_Date": self.curr_Date, 
             "end_Date":self.end_Date, 
-            "is_public": self.is_public
+            "is_public": self.is_public,
             "habit_data": self.habit_data
         }
         return entry

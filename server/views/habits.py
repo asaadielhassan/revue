@@ -37,15 +37,13 @@ def habit_create(username: str):
         "name": And(str, len, error="Namr not specified"),
         "description": And(str, len, error="description not specified"),
         "num_Days": And(Use(int), error="Number of Days not specified"),
-        "is_public": And(str, len, error="publicity not specified"),
-        "habit_data": And(list, error="Habit data not specified")
+        "is_public": And(str, len, error="publicity not specified")
     })
     form = {
         "name": request.form.get("name"),
         "description": request.form.get("description"),
         "num_Days": request.form.get("num_Days"),
-        "is_public": request.form.get("is_public"),
-        "habit_data": request.form.get("habit_data")
+        "is_public": request.form.get("is_public")
     }
     validated = schema.validate(form)
 
@@ -53,8 +51,10 @@ def habit_create(username: str):
     #subvue = Subvue.objects(permalink__iexact=subvue_permalink).first()
     #if not subvue:
     #    return jsonify({"error": f"Subvue '{subvue_permalink}' not found"}), 404
-
+    temp_data = []
     user = User.objects(username=username).first()
+    for i in range(validated["num_Days"]):
+        temp_data.append(["false", 0, 0])
 
     habit = Habit(
         # user=user,
@@ -77,8 +77,8 @@ def habit_create(username: str):
         string_start = datetime.strftime(datetime.now(), "%B %m, %Y"), #A list with the month in mm format and day in the dd format
         curr_Date = datetime.now(),
         end_Date = datetime.now() + timedelta(days=int(validated["num_Days"])),
-        is_public = validated["is_public"]
-        habit_data = validated["habit_data"]
+        is_public = validated["is_public"],
+        habit_data = temp_data
     ).save()
     return jsonify(habit.to_public_json())
 
