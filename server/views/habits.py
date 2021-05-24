@@ -8,7 +8,6 @@ from models import User, Comment, Subvue, Habit
 from mongoengine.errors import ValidationError
 from authorization import login_required
 
-# global counter = 0
 
 @app.route("/api/habits/public")
 def habit_index():
@@ -24,15 +23,6 @@ def habit_index():
 @app.route("/api/habits", methods=["POST"])
 @login_required
 def habit_create(username: str):
-    # if not request.json:
-    #     return jsonify({"error": "Data not specified"}), 409
-    # if not request.json.get("name"):
-    #     return jsonify({"error": "Name not specified"}), 409
-    # if not request.json.get("description"):
-    #     return jsonify({"error": "Description not specified"}), 409
-    # if not request.json.get("num_Days"):
-    #     return jsonify({"error": "numDays not specified"}), 409
-
     schema = Schema({
         "name": And(str, len, error="Namr not specified"),
         "description": And(str, len, error="description not specified"),
@@ -47,25 +37,9 @@ def habit_create(username: str):
     }
     validated = schema.validate(form)
 
-    #subvue_permalink = validated["habit"]
-    #subvue = Subvue.objects(permalink__iexact=subvue_permalink).first()
-    #if not subvue:
-    #    return jsonify({"error": f"Subvue '{subvue_permalink}' not found"}), 404
-
     user = User.objects(username=username).first()
 
     habit = Habit(
-        # user=user,
-        # id = counter
-        # name= validated["title"],
-        # description="",
-        # days = numDays,
-        # repeat = [],
-        # self.start_Date = [timer.strftime("%m"), timer.strftime("%d")], #A list with the month in mm format and day in the dd format
-        # self.start_Day = int(timer.day()),
-        # self.curr_Day = int(timer.day()),
-        # endDate = []
-
         user = user,
         name = validated["name"],
         description=validated["description"],
@@ -127,24 +101,3 @@ def habits_delete(username: str, id: str):
     habit.delete()
 
     return jsonify(habit_info)
-
-
-#@app.route("/api/habits/<string:id>/comments", methods=["habit"])
-#@login_required
-#def habits_create_comment(username: str, id: str):
-#    schema = Schema({
-#        "content": And(str, len, error="No content specified")
-#    })
-#    validated = schema.validate(request.json)
-#
-#    try:
-#        habit = habit.objects(pk=id).first()
-#    except ValidationError:
-#        return jsonify({"error": "habit not found"}), 404
-#
-#    user = User.objects(username=username).first()
-#    comments = habit.comments
-#    comments.append(Comment(user=user, content=validated["content"]))
-#    habit.save()
-#
-#    return jsonify([comment.to_public_json() for comment in habit.comments][::-1])

@@ -23,17 +23,17 @@
 
 
 <script>
-    import TaskPreview from '@/components/TaskPreview'
+    // import TaskPreview from '@/components/TaskPreview'
 
     export default {
         name: 'TaskScheduler',
 
-        components: {TaskPreview},
+        // components: {TaskPreview},
 
         data(){
             return{ 
                 tasks: [],
-                title: "Schedule A Task:"
+                title: "Schedule A Task:",
                 task: ["Workout Daily", 30, "day", "#ffffff", .1]
             }
         },

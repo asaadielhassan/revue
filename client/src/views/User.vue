@@ -7,18 +7,6 @@
         <GridPreview v-for="grid in grids" :key="grid.id" :grid="grid">
           {{ grid.name }}
         </GridPreview>
-
-        <!-- <div class = "post-preview">
-          <div v-for = "grid in grids" :key="grid.id">
-            <h1> {{grid.name}} </h1>
-            <div class = "body-area">
-              <h3><slot></slot></h3>
-              <span>created on {{ grid.start_Date }}</span>
-              <span>&nbsp;by <span class="blue-highlight">u/{{ grid.user.username }}</span></span>
-            </div>
-          </div>
-        </div> -->
-
       </div>
     </div>
 
@@ -35,7 +23,6 @@
 <script>
 import GridPreview from '@/components/GridPreview'
 import CreateButton from '@/components/CreateButton'
-// import PostsService from '@/services/PostsService'
 import UsersService from '@/services/UsersService'
 import HabitsService from '@/services/HabitsService'
 
@@ -47,7 +34,6 @@ export default {
   data() {
     return {
       username: this.$route.params.username,
-      // posts: [],
       grids: [],
       hashedEmail: ''
     }
@@ -75,16 +61,10 @@ export default {
         .then(response => {
           this.grids = response.data
         })
-
-      // PostsService.user(this.username)
-      //   .then(response => {
-      //     this.posts = response.data
-      //   })
         .catch(e => {
           this.error = e.response.data.error
         })
     }
-    
   }
 }
 </script>
