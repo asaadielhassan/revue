@@ -90,6 +90,7 @@ class Habit(Document):
     start_Date = DateTimeField(required=True, default=datetime.datetime.now())
     curr_Date = DateTimeField(required=True, default=datetime.datetime.now())
     end_Date = DateTimeField(required=True, default=datetime.datetime.now())
+    habit_data = ListField(ListField(max_length=3, required = True))
     complete = 0
     monthDict = {
         1 : 31,
@@ -198,6 +199,7 @@ class Habit(Document):
             "curr_Date": self.curr_Date, 
             "end_Date":self.end_Date, 
             "is_public": self.is_public
+            "habit_data": self.habit_data
         }
         return entry
 

@@ -38,12 +38,14 @@ def habit_create(username: str):
         "description": And(str, len, error="description not specified"),
         "num_Days": And(Use(int), error="Number of Days not specified"),
         "is_public": And(str, len, error="publicity not specified"),
+        "habit_data": And(list, error="Habit data not specified")
     })
     form = {
         "name": request.form.get("name"),
         "description": request.form.get("description"),
         "num_Days": request.form.get("num_Days"),
-        "is_public": request.form.get("is_public")
+        "is_public": request.form.get("is_public"),
+        "habit_data": request.form.get("habit_data")
     }
     validated = schema.validate(form)
 
@@ -76,6 +78,7 @@ def habit_create(username: str):
         curr_Date = datetime.now(),
         end_Date = datetime.now() + timedelta(days=int(validated["num_Days"])),
         is_public = validated["is_public"]
+        habit_data = validated["habit_data"]
     ).save()
     return jsonify(habit.to_public_json())
 
