@@ -34,7 +34,7 @@ export default {
 }
 </script>
 
-<style css = scoped>
+<style scoped>
 p {
     margin: 5px 0;
 }
