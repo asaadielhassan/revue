@@ -37,14 +37,7 @@ def habit_create(username: str):
     }
     validated = schema.validate(form)
 
-<<<<<<< HEAD
-    #subvue_permalink = validated["habit"]
-    #subvue = Subvue.objects(permalink__iexact=subvue_permalink).first()
-    #if not subvue:
-    #    return jsonify({"error": f"Subvue '{subvue_permalink}' not found"}), 404
     temp_data = []
-=======
->>>>>>> Abhishek
     user = User.objects(username=username).first()
     for i in range(validated["num_Days"]):
         temp_data.append(["false", 0, 0])
