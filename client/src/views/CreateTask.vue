@@ -142,7 +142,7 @@ body {
   height: 3px;
   width: 30px;
   border-radius: 5px;
-  /* background: linear-gradient(135deg, #71b7e6, #9b59b6); */
+  background: linear-gradient(135deg, #eb9766, #4f5d75);
 }
 .content form .user-details {
   display: flex;
