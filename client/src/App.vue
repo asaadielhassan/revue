@@ -32,13 +32,13 @@ export default {
 
 <style>
 #app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 } 
 
  body {
-    font-family: 'montserrat', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 header {
