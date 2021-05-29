@@ -7,7 +7,8 @@ from flask import jsonify, request
 from models import User, Comment, Subvue, Habit
 from mongoengine.errors import ValidationError
 from authorization import login_required
-
+import sys
+import logging
 
 @app.route("/api/habits/public")
 def habit_index():
@@ -40,7 +41,7 @@ def habit_create(username: str):
     temp_data = []
     user = User.objects(username=username).first()
     for i in range(validated["num_Days"]):
-        temp_data.append(["false", 0, 0])
+        temp_data.append(["true", 0, 0])
 
     habit = Habit(
         user = user,
@@ -105,3 +106,28 @@ def habits_delete(username: str, id: str):
     habit.delete()
 
     return jsonify(habit_info)
+
+@app.route("/api/habits/update/<string:id>", methods=["POST"])
+@login_required
+def habit_update(username: str, id: str):
+    print(request.form.get("id"))
+    schema = Schema({
+        "id": And(str, error="Number of Days not specified"),
+        #"habit_data": And(Use(list), len, error="publicity not specified")
+    })
+    form = {
+        "habit_data": request.form.get("habit_data"),
+        "id": request.form.get("id")
+    }
+    validated = schema.validate(form)
+    print(validated["habit_data"])
+    try:
+        habit = Habit.objects(pk=validated["id"]).first()
+        if not habit:
+            raise ValidationError
+    except ValidationError:
+        return jsonify({"error": "Grid not found"}), 404
+
+    habit.habit_data = validated["habit_data"]
+    habit.save()
+    return jsonify(habit.to_public_json())

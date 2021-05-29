@@ -19,5 +19,9 @@ export default {
 
   user(username) {
     return Api().get('habits/user/' + username)
+  },
+
+  update(id){
+    return Api().post('habits/update/'+ id)
   }
 }

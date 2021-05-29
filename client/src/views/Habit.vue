@@ -48,49 +48,49 @@
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "0" tag = "checkbox" v-on:click="(updatebox1(0))">
 <span class="checkmark"></span>
 </label>
 </div>
 </td>
 <td><div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "1" tag = "checkbox" v-on:click="(updatebox1(1))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "2" tag = "checkbox" v-on:click="(updatebox1(2))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "3" tag = "checkbox" v-on:click="(updatebox1(3))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "4" tag = "checkbox" v-on:click="(updatebox1(4))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "5" tag = "checkbox" v-on:click="(updatebox1(5))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "6" tag = "checkbox" v-on:click="(updatebox1(6))">
 <span class="checkmark"></span>
 </label>
 </div></td>
@@ -100,49 +100,49 @@
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "7" tag = "checkbox" v-on:click="(updatebox1(7))">
 <span class="checkmark"></span>
 </label>
 </div>
 </td>
 <td><div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "8" tag = "checkbox" v-on:click="(updatebox1(8))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "9" tag = "checkbox" v-on:click="(updatebox1(9))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "10" tag = "checkbox" v-on:click="(updatebox1(10))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "11" tag = "checkbox" v-on:click="(updatebox1(11))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "12" tag = "checkbox" v-on:click="(updatebox1(12))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "13" tag = "checkbox" v-on:click="(updatebox1(13))">
 <span class="checkmark"></span>
 </label>
 </div></td>
@@ -153,49 +153,49 @@
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "14" tag = "checkbox" v-on:click="(updatebox1(14))">
 <span class="checkmark"></span>
 </label>
 </div>
 </td>
 <td><div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "15" tag = "checkbox" v-on:click="(updatebox1(15))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "16" tag = "checkbox" v-on:click="(updatebox1(16))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "17" tag = "checkbox" v-on:click="(updatebox1(17))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "18" tag = "checkbox" v-on:click="(updatebox1(18))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "19" tag = "checkbox" v-on:click="(updatebox1(19))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "20" tag = "checkbox" v-on:click="(updatebox1(20))">
 <span class="checkmark"></span>
 </label>
 </div></td>
@@ -206,49 +206,49 @@
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "21" tag = "checkbox" v-on:click="(updatebox1(21))">
 <span class="checkmark"></span>
 </label>
 </div>
 </td>
 <td><div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "22" tag = "checkbox" v-on:click="(updatebox1(22))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "23" tag = "checkbox" v-on:click="(updatebox1(23))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "24" tag = "checkbox" v-on:click="(updatebox1(24))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "25" tag = "checkbox" v-on:click="(updatebox1(25))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "26" tag = "checkbox" v-on:click="(updatebox1(26))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "27" tag = "checkbox" v-on:click="(updatebox1(27))">
 <span class="checkmark"></span>
 </label>
 </div></td>
@@ -281,7 +281,7 @@
 import HabitsService from "@/services/HabitsService";
 
 export default {
-  name: "habit",
+  name: "Habit",
 
   data() {
     return {
@@ -297,6 +297,7 @@ export default {
       /* upvotes: [], */
       /* downvotes: [], */
       deleteVerify: false,
+      habit_data: [],
 
       /* newCommentContent: '', */
       /* errorCreateComment: null */
@@ -317,9 +318,37 @@ export default {
         this.deleteVerify = true;
       }
     },
+    updatebox1(box){
+      console.log("Click");
+      var checkbox = document.getElementById(parseInt(box));
+      var temp = [];
+      var i = 0;
+      var day;
+      for (day of this.habit_data){
+        if (i == box)
+          if(checkbox.checked == true){
+            temp.push(["true", 0,0]);
+          }
+          else{
+            temp.push(["false", 0,0]);
+          }
+        else{
+          temp.push(day);
+        }
+        i++;
+      }
+      var formData = new FormData();
+      formData.append("habit_data", JSON.stringify(temp));
+      formData.append("id", this.id);
+      HabitsService.update(formData)
+        .catch((error) => {
+          this.error = error.response.data.error;
+        });
+    },
   },
 
   mounted() {
+
     HabitsService.item(this.id)
       .then((response) => {
         this.name = response.data.name;
@@ -327,6 +356,17 @@ export default {
         this.start_Date = response.data.start_Date;
         this.string_start = response.data.string_start;
         this.description = response.data.description;
+        this.habit_data = response.data.habit_data;
+        var checkboxes = document.querySelectorAll('input[type=checkbox]');
+        var i = 0;
+        var checkbox;
+        for(checkbox of checkboxes){
+        var x = this.habit_data[i][0];
+          if(x == "true"){
+           checkbox.checked = true;
+         }
+        i++;
+        }
         /*this.comments = response.data.comments
                 this.upvotes = response.data.upvotes
                 this.downvotes = response.data.downvotes
@@ -335,6 +375,7 @@ export default {
       .catch((e) => {
         this.error = e.response.data.error;
       });
+
   },
 };
 </script>
