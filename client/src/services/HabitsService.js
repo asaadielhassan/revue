@@ -21,7 +21,8 @@ export default {
     return Api().get('habits/user/' + username)
   },
 
-  update(id){
-    return Api().post('habits/update/'+ id)
+  update(id, habit){
+    console.log(habit)
+    return Api().post('habits/id/'+ id, habit)
   }
 }

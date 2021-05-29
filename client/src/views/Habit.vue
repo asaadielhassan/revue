@@ -318,29 +318,26 @@ export default {
         this.deleteVerify = true;
       }
     },
-    updatebox1(box){
+    updatebox1(){
       console.log("Click");
-      var checkbox = document.getElementById(parseInt(box));
       var temp = [];
-      var i = 0;
-      var day;
-      for (day of this.habit_data){
-        if (i == box)
+      var checkboxes = document.querySelectorAll('input[type=checkbox]');
+        var checkbox;
+        for(checkbox of checkboxes){
           if(checkbox.checked == true){
             temp.push(["true", 0,0]);
           }
           else{
             temp.push(["false", 0,0]);
           }
-        else{
-          temp.push(day);
         }
-        i++;
-      }
       var formData = new FormData();
-      formData.append("habit_data", JSON.stringify(temp));
-      formData.append("id", this.id);
-      HabitsService.update(formData)
+      formData.append("habit_data", temp);
+      console.log(formData);
+      console.log(formData.get("habit_data"));
+      HabitsService.update(this.id, formData)
+        .then(() => {
+        })
         .catch((error) => {
           this.error = error.response.data.error;
         });

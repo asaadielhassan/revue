@@ -7,8 +7,7 @@ from flask import jsonify, request
 from models import User, Comment, Subvue, Habit
 from mongoengine.errors import ValidationError
 from authorization import login_required
-import sys
-import logging
+import ast
 
 @app.route("/api/habits/public")
 def habit_index():
@@ -107,27 +106,53 @@ def habits_delete(username: str, id: str):
 
     return jsonify(habit_info)
 
-@app.route("/api/habits/update/<string:id>", methods=["POST"])
+@app.route("/api/habits/id/<string:id>", methods=["POST"])
 @login_required
 def habit_update(username: str, id: str):
-    print(request.form.get("id"))
+    x = request.form.get("habit_data")
+    y = ""
+    habit_data = []
+    data = []
+    for i in x:
+        if i == 't':
+            y += 't'
+        elif i == 'r':
+            y += 'r'
+        elif i == 'u':
+            y += 'u'
+        elif i == 'e':
+            y += 'e'
+            data.append(y)
+            y = ""
+        elif i == 'f':
+            y += 'f'
+        elif i == 'a':
+            y += 'a'
+        elif i == 'l':
+            y += 'l'
+        elif i == 's':
+            y += 's'
+        elif i == "0":
+            if len(data) == 2:
+                data.append(0)
+                habit_data.append(data)
+                data = []
+            else:
+                data.append(0)
     schema = Schema({
-        "id": And(str, error="Number of Days not specified"),
-        #"habit_data": And(Use(list), len, error="publicity not specified")
+        #"habit_data": And(Use(list), error="habit_data not specified")
     })
     form = {
-        "habit_data": request.form.get("habit_data"),
-        "id": request.form.get("id")
+        #"habit_data": request.form.get("habit_data"),
     }
     validated = schema.validate(form)
-    print(validated["habit_data"])
     try:
-        habit = Habit.objects(pk=validated["id"]).first()
+        habit = Habit.objects(pk=id).first()
         if not habit:
             raise ValidationError
     except ValidationError:
         return jsonify({"error": "Grid not found"}), 404
 
-    habit.habit_data = validated["habit_data"]
+    habit.habit_data = habit_data
     habit.save()
     return jsonify(habit.to_public_json())
