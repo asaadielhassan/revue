@@ -19,5 +19,13 @@ export default {
 
   user(username) {
     return Api().get('habits/user/' + username)
+<<<<<<< HEAD
+=======
+  },
+
+  update(id, habit){
+    console.log(habit)
+    return Api().post('habits/id/'+ id, habit)
+>>>>>>> Dev-Drew
   }
 }
