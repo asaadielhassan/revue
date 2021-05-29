@@ -7,11 +7,7 @@ from flask import jsonify, request
 from models import User, Comment, Subvue, Habit
 from mongoengine.errors import ValidationError
 from authorization import login_required
-<<<<<<< HEAD
-
-=======
 import ast
->>>>>>> Dev-Drew
 
 @app.route("/api/habits/public")
 def habit_index():
@@ -109,8 +105,6 @@ def habits_delete(username: str, id: str):
     habit.delete()
 
     return jsonify(habit_info)
-<<<<<<< HEAD
-=======
 
 @app.route("/api/habits/id/<string:id>", methods=["POST"])
 @login_required
@@ -162,4 +156,3 @@ def habit_update(username: str, id: str):
     habit.habit_data = habit_data
     habit.save()
     return jsonify(habit.to_public_json())
->>>>>>> Dev-Drew

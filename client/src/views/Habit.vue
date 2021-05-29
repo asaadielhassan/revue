@@ -318,8 +318,6 @@ export default {
         this.deleteVerify = true;
       }
     },
-<<<<<<< HEAD
-=======
     updatebox1(){
       console.log("Click");
       var temp = [];
@@ -344,7 +342,6 @@ export default {
           this.error = error.response.data.error;
         });
     },
->>>>>>> Dev-Drew
   },
 
   mounted() {
