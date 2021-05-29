@@ -1,8 +1,11 @@
 <template lang="html">
-  <div class="post">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="post">
     <div class="main-container">
       <div class="body container">
-        <Vote :upvotes="upvotes" :downvotes="downvotes" :postId="id" @error="(value) => {error = value}"></Vote>
         <div class="content">
           <svg id="delete-button" @click="deletePost" fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
             <title>Delete Post</title>
@@ -25,45 +28,33 @@
              on {{ created }}
           </h3>
 
-          <p v-html="content"></p>
 
-          <i class="post-id">ID {{ id }}</i>
-        </div>
-      </div>
+<i class="post-id">ID {{ id }}</i>
 
-      <div class="container">
-        <h2 v-show="comments == []" >Comments</h2>
+</div>
+</div>
+</div>
+</div>
 
-        <form id="comment-form" @submit.prevent="createComment">
-          <p class="error">{{ errorCreateComment }}</p>
-          <textarea v-model="newCommentContent" name="name" placeholder="Content" rows="5" cols="80"></textarea>
-          <input class="button" type="submit" value="Create comment">
-        </form>
+ 
+</body>
 
-        <Comment v-for="comment in comments" :key="comment.id" :user="comment.user" :created="comment.created" :content="comment.content"></Comment>
-      </div>
-    </div>
 
     <SubvueInfo class="subvue-info" v-if="subvue" :subvue="subvue"></SubvueInfo>
     <!-- Only show it if data was fetched -->
     <div v-else></div>
 
     <CreateButton></CreateButton>
-  </div>
+  
 </template>
 
 <script>
-import Comment from '@/components/Comment'
-import SubvueInfo from '@/components/SubvueInfo'
-import CreateButton from '@/components/CreateButton'
 
-import Vote from '@/components/Vote'
 import PostsService from '@/services/PostsService'
 
 export default {
     name: 'post',
 
-    components: { Comment, Vote, SubvueInfo, CreateButton },
 
     data() {
         return {
@@ -71,16 +62,16 @@ export default {
             id: this.$route.params.id,
             title: '',
             user: '',
-            subvue: null,
+            /* subvue: null, */
             created: '',
             content: '',
-            comments: [],
-            upvotes: [],
-            downvotes: [],
+            /* comments: [], */
+            /* upvotes: [], */
+            /* downvotes: [], */
             deleteVerify: false,
 
-            newCommentContent: '',
-            errorCreateComment: null
+            /* newCommentContent: '', */
+            /* errorCreateComment: null */
         }
     },
 
@@ -98,18 +89,6 @@ export default {
                 this.deleteVerify = true
             }
         },
-
-        createComment() {
-            PostsService.addComment(this.id, this.newCommentContent)
-                .then(response => {
-                    this.comments = response.data
-                    this.newCommentContent = ''
-                    this.errorCreateComment = null
-                })
-                .catch(e => {
-                    this.errorCreateComment = e.response.data.error
-                })
-        }
     },
 
     mounted() {
@@ -119,10 +98,10 @@ export default {
                 this.user = response.data.user
                 this.created = response.data.created
                 this.content = response.data.content
-                this.comments = response.data.comments
+                /*this.comments = response.data.comments
                 this.upvotes = response.data.upvotes
                 this.downvotes = response.data.downvotes
-                this.subvue = response.data.subvue
+                this.subvue = response.data.subvue */
             })
             .catch(e => {
                 this.error = e.response.data.error
@@ -137,9 +116,69 @@ export default {
     float: left;
 }
 
-.subvue-info {
-    width: 20%;
-    float: right;
+* {
+  box-sizing: border-box;
+}
+
+table {
+  width:30%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 30px 30px 30px 30px;
+  background-color: white;
+}
+#t01 tr:nth-child(even) {
+ background-color: #eee;
+}
+#t01 tr:nth-child(odd) {
+ background-color: #eee;
+}
+
+
+.box {
+  }
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container {
+  display: block;
+  position: relative;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: -25px -12px -30px -18px;
+  height: 50px;
+  width: 50px;
+  background-color: #eee;
+  border: 1px solid black;  
+}
+
+.box .container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.box .container input:checked ~ .checkmark {
+  background-color: #2196F3;
 }
 
 .body {
@@ -180,29 +219,6 @@ h3 {
     font-weight: 400;
 }
 
-.post-id {
-    text-align: right;
-    display: block;
-}
 
-#comment-form {
-    max-width: 1500px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-#comment-form textarea,
-#comment-form input {
-    display: block;
-    width: 100%;
-    margin: 0;
-    border: none;
-    background: rgb(223, 224, 221);
-    padding: 15px;
-    margin: 20px 0;
-
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box; /* Firefox, other Gecko */
-    box-sizing: border-box; /* Opera/IE 8+ */
-}
 </style>
+
