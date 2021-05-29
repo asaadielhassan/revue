@@ -345,13 +345,24 @@ export default {
   },
 
   mounted() {
-    HabitsService.item(this.id)
+     HabitsService.item(this.id)
       .then((response) => {
         this.name = response.data.name;
         this.user = response.data.user;
         this.start_Date = response.data.start_Date;
         this.string_start = response.data.string_start;
         this.description = response.data.description;
+        this.habit_data = response.data.habit_data;
+        var checkboxes = document.querySelectorAll('input[type=checkbox]');
+        var i = 0;
+        var checkbox;
+        for(checkbox of checkboxes){
+        var x = this.habit_data[i][0];
+          if(x == "true"){
+           checkbox.checked = true;
+         }
+        i++;
+        }
         /*this.comments = response.data.comments
                 this.upvotes = response.data.upvotes
                 this.downvotes = response.data.downvotes
@@ -360,6 +371,7 @@ export default {
       .catch((e) => {
         this.error = e.response.data.error;
       });
+
   },
 };
 </script>
