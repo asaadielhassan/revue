@@ -2,7 +2,6 @@
     <div class = "card">
         <img class="portrait" :src="devImg"/>
         <h3> {{devName}} </h3>
-        <h5> ::{{devTitle}}:: </h5>
         <p class="description">{{devIntro}}</p>
     </div>
 </template>
@@ -25,31 +24,27 @@
 <style scoped lang="css">
 .card {
     display: block;
-    min-height: 500px;
-    margin-bottom: 100px;
-    border-top: 7px #D0D7E1 dashed;
-    background-color: #5B5756;
-    color: #D0D7E1;
+    width: 40%;
+    border-bottom: 1px #aa5635 solid;
+    border-top: 4px #aa5635 solid;
+    border-left: 2px #6e3b27 solid;
+    border-right: 2px #6e3b27 solid;
+    background-color: rgb(212, 161, 116);
+    color: rgb(136, 75, 22);
     padding: 35px;
-    border-radius: 5%;
     padding-bottom: 55px;
+    margin: auto;
 
 }
 .card h3{
-    font-size: 2.5em;
     margin-top: 20px;
-    text-decoration: underline overline;
-}
-.card h5{
-    font-size: 1.55em;
+    font-size: 20px;
 }
 .card p{
-    margin-top: 40px;
-    font-size: 1.35em;
+    margin-top: 20px;
 }
 .portrait{
-    height: 500px;
-    border-radius: 35%;
+    width: 90%;
     display: block;
     position: relative;
     margin:auto;
