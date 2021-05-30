@@ -79,7 +79,7 @@ def habits_user(username: str):
     except ValidationError:
         return jsonify({"error": "User not found"}), 404
 
-    habits = Habit.objects(user=user).order_by("-created")
+    habits = Habit.objects(user=user).order_by("-start_Date")
 
     return jsonify([habit.to_public_json() for habit in habits])
 
