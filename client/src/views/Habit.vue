@@ -8,12 +8,12 @@
       <div class="body-container">
         <div class="content">
           
-          <svg id="delete-button" @click="deleteHabit" fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <svg class = "dlt" id="delete-button" @click="deleteHabit" fill="#000000" height="100" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
             <title>Delete Grid</title>
             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
             <path d="M0 0h24v24H0z" fill="none"/>
           </svg>
-          <svg id="verify-delete-button" v-show="deleteVerify" @click="deleteVerify = false" fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <svg class = "dlt1" id="verify-delete-button" v-show="deleteVerify" @click="deleteVerify = false" fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
             <title>Cancel</title>
             <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
             <path d="M0 0h24v24H0z" fill="none"/>
@@ -382,8 +382,17 @@ body{
   background: linear-gradient(20deg, #4F5D75, #eb9766);
   
 }
+.dlt {
+  margin-right: 500px;
+  margin-top: 125px;
+}
+.dlt1 {
+  margin-right: 500px;
+  margin-top: 163Px;
+}
 .main-container {
   margin: auto;
+  height: 100vh;
   width: 60%;
   background-color: rgb(245, 188, 161);
   text-align: center;
