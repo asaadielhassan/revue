@@ -112,7 +112,7 @@ export default {
 
 .feed{
   background: #4F5D75;
-  height: 100vh;
+  min-height: 100vh;
   grid-area: main;
   overflow-y: auto;
 }
@@ -120,7 +120,7 @@ export default {
 .styleme{
   border-left: 12px solid #eea073;
   border-right: 12px solid #eea073;
-  height: 100vh;
+  min-height: 100vh;
 }
 .grids{
   margin: auto;
@@ -129,7 +129,7 @@ export default {
   align: center;
   padding-bottom: 50px;
   padding-top: 60px;
-  height: 100vh;
+  min-height: 100vh;
 }
 .grid__card :hover {
   background: black;

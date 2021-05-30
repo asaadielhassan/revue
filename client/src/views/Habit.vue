@@ -392,7 +392,7 @@ body{
 }
 .main-container {
   margin: auto;
-  height: 100vh;
+  min-height: 100vh;
   width: 60%;
   background-color: rgb(245, 188, 161);
   text-align: center;
