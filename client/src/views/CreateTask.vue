@@ -70,9 +70,9 @@ export default {
     create() {
       var shit;
       if (this.checked == "true")
-        shit = true;
+        shit = "true";
       else 
-        shit = false;
+        shit = "false";
       var formData = new FormData();
       formData.append("name", this.name);
       formData.append("num_Days", this.days);

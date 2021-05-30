@@ -2,8 +2,8 @@
   <div class="feed container">
     <div class="title">
       <div class="textblock">
-        <h1>The PUBLIC Feed</h1>
-        <h5>Explore the world of productify by viewing the public grids our community has been creating.</h5>
+        <h1>The Public Feed</h1>
+        <h5>Explore the world of Productify by viewing the public grids our community has been creating.</h5>
       </div>
     </div>
     <div class="styleme">
