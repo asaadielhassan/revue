@@ -7,8 +7,7 @@ html, body {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 a {
@@ -25,7 +24,7 @@ a {
     padding: 10px 20px;
 }
 
-.button {
+/* .button {
     background: rgb(235, 151, 102) !important;
     color: white;
     cursor: pointer;
@@ -33,7 +32,7 @@ a {
 
 .button:hover {
     background: rgb(95, 46, 44) !important;
-}
+} */
 
 .error {
     color: rgb(150, 47, 47);

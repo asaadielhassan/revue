@@ -5,8 +5,9 @@
 <body>
 <div class="post">
     <div class="main-container">
-      <div class="body container">
+      <div class="body-container">
         <div class="content">
+          
           <svg id="delete-button" @click="deleteHabit" fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
             <title>Delete Grid</title>
             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
@@ -17,8 +18,13 @@
             <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
             <path d="M0 0h24v24H0z" fill="none"/>
           </svg>
+        
+          </div>
+          <h4>Every day that you complete your goal, check the corresponding box in the grid. Good luck on your goal pursuit!</h4>
+          </div>
 
           <p class="error">{{ error }}</p>
+
           <h1>{{ name }}</h1>
 
           <h3>by
@@ -27,20 +33,16 @@
             </router-link>
              on {{ string_start }}
           </h3>
-
-
+" {{description}} "
 <br>
-<h4>Click on each day's checkbox once you completed the goal. Good luck on your goal pursuit!</h4>
 <br>
-
 <table id="t01">
-
 <tr>
-    <th>M</th>
-    <th>T</th> 
-    <th>W</th>
-    <th>T</th> 
-    <th>F</th>
+    <th> M</th>
+    <th> T</th> 
+    <th> W</th>
+    <th> T</th> 
+    <th> F</th>
     <th>S</th> 
     <th>S</th>
 </tr>
@@ -48,49 +50,49 @@
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "0" tag = "checkbox" v-on:click="(updatebox1(0))">
 <span class="checkmark"></span>
 </label>
 </div>
 </td>
 <td><div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "1" tag = "checkbox" v-on:click="(updatebox1(1))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "2" tag = "checkbox" v-on:click="(updatebox1(2))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "3" tag = "checkbox" v-on:click="(updatebox1(3))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "4" tag = "checkbox" v-on:click="(updatebox1(4))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "5" tag = "checkbox" v-on:click="(updatebox1(5))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "6" tag = "checkbox" v-on:click="(updatebox1(6))">
 <span class="checkmark"></span>
 </label>
 </div></td>
@@ -100,49 +102,49 @@
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "7" tag = "checkbox" v-on:click="(updatebox1(7))">
 <span class="checkmark"></span>
 </label>
 </div>
 </td>
 <td><div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "8" tag = "checkbox" v-on:click="(updatebox1(8))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "9" tag = "checkbox" v-on:click="(updatebox1(9))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "10" tag = "checkbox" v-on:click="(updatebox1(10))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "11" tag = "checkbox" v-on:click="(updatebox1(11))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "12" tag = "checkbox" v-on:click="(updatebox1(12))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "13" tag = "checkbox" v-on:click="(updatebox1(13))">
 <span class="checkmark"></span>
 </label>
 </div></td>
@@ -153,49 +155,49 @@
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "14" tag = "checkbox" v-on:click="(updatebox1(14))">
 <span class="checkmark"></span>
 </label>
 </div>
 </td>
 <td><div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "15" tag = "checkbox" v-on:click="(updatebox1(15))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "16" tag = "checkbox" v-on:click="(updatebox1(16))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "17" tag = "checkbox" v-on:click="(updatebox1(17))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "18" tag = "checkbox" v-on:click="(updatebox1(18))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "19" tag = "checkbox" v-on:click="(updatebox1(19))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "20" tag = "checkbox" v-on:click="(updatebox1(20))">
 <span class="checkmark"></span>
 </label>
 </div></td>
@@ -206,49 +208,49 @@
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "21" tag = "checkbox" v-on:click="(updatebox1(21))">
 <span class="checkmark"></span>
 </label>
 </div>
 </td>
 <td><div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "22" tag = "checkbox" v-on:click="(updatebox1(22))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "23" tag = "checkbox" v-on:click="(updatebox1(23))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "24" tag = "checkbox" v-on:click="(updatebox1(24))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "25" tag = "checkbox" v-on:click="(updatebox1(25))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "26" tag = "checkbox" v-on:click="(updatebox1(26))">
 <span class="checkmark"></span>
 </label>
 </div></td>
 <td>
 <div class="box">
 <label class="container">
-<input type="checkbox">
+<input type="checkbox" id = "27" tag = "checkbox" v-on:click="(updatebox1(27))">
 <span class="checkmark"></span>
 </label>
 </div></td>
@@ -262,8 +264,7 @@
 
 </div>
 </div>
-</div>
-</div>
+
 
 </body>
 
@@ -317,16 +318,51 @@ export default {
         this.deleteVerify = true;
       }
     },
+    updatebox1(){
+      console.log("Click");
+      var temp = [];
+      var checkboxes = document.querySelectorAll('input[type=checkbox]');
+        var checkbox;
+        for(checkbox of checkboxes){
+          if(checkbox.checked == true){
+            temp.push(["true", 0,0]);
+          }
+          else{
+            temp.push(["false", 0,0]);
+          }
+        }
+      var formData = new FormData();
+      formData.append("habit_data", temp);
+      console.log(formData);
+      console.log(formData.get("habit_data"));
+      HabitsService.update(this.id, formData)
+        .then(() => {
+        })
+        .catch((error) => {
+          this.error = error.response.data.error;
+        });
+    },
   },
 
   mounted() {
-    HabitsService.item(this.id)
+     HabitsService.item(this.id)
       .then((response) => {
         this.name = response.data.name;
         this.user = response.data.user;
         this.start_Date = response.data.start_Date;
         this.string_start = response.data.string_start;
         this.description = response.data.description;
+        this.habit_data = response.data.habit_data;
+        var checkboxes = document.querySelectorAll('input[type=checkbox]');
+        var i = 0;
+        var checkbox;
+        for(checkbox of checkboxes){
+        var x = this.habit_data[i][0];
+          if(x == "true"){
+           checkbox.checked = true;
+         }
+        i++;
+        }
         /*this.comments = response.data.comments
                 this.upvotes = response.data.upvotes
                 this.downvotes = response.data.downvotes
@@ -335,15 +371,57 @@ export default {
       .catch((e) => {
         this.error = e.response.data.error;
       });
+
   },
 };
 </script>
 
 <style scoped lang="css">
-.main-container {
-  width: 80%;
-  float: left;
+
+body{
+  background: linear-gradient(20deg, #4F5D75, #eb9766);
+  
 }
+.main-container {
+  margin: auto;
+  width: 60%;
+  background-color: rgb(245, 188, 161);
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35px; 
+  color: rgb(75, 74, 74);
+  border-left: solid 1px;
+  border-right: solid 1px;
+  border-bottom: solid 1px;
+   
+}
+
+.body-container {
+  margin: auto;
+  width: 60%;
+  background-color: rgb(238, 155, 99);
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;  
+  color: rgb(145, 73, 26);
+  border-left: solid 1px;
+  border-right: solid 1px;
+  border-bottom: solid 1px;
+  border-top: solid 1px;
+  position: 10px 40px 10px 40px;    
+}
+
+.content {
+  margin: auto;
+  width: 60%;
+  background-color: rgb(241, 139, 71);
+  text-align: center;
+  vertical-align: middle;
+  line-height: 25px;  
+  color: grey;
+  }
+
+
 
 * {
   box-sizing: border-box;
@@ -351,23 +429,26 @@ export default {
 
 table {
   width: 30%;
+  margin: auto;
 }
 table,
 th,
 td {
   border: 1px solid black;
+  padding: 0px 0px 0px 0px;
   border-collapse: collapse;
 }
 th,
 td {
-  padding: 30px 30px 30px 30px;
+  padding: 10px 0px 10px 0px;
   background-color: white;
+
 }
 #t01 tr:nth-child(even) {
-  background-color: #eee;
+  background-color: grey;
 }
 #t01 tr:nth-child(odd) {
-  background-color: #eee;
+  background-color: grey;
 }
 
 .box {
@@ -396,9 +477,9 @@ td {
   position: absolute;
   top: 0;
   left: 0;
-  margin: -25px -12px -30px -18px;
-  height: 50px;
-  width: 50px;
+  margin: 0px 0px 0px 9px;
+  height: 20px;
+  width: 20px;
   background-color: #eee;
   border: 1px solid black;
 }
@@ -408,7 +489,7 @@ td {
 }
 
 .box .container input:checked ~ .checkmark {
-  background-color: #2196f3;
+  background-color: #4F5D75;
 }
 
 .body {

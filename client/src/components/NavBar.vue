@@ -59,7 +59,7 @@ export default {
 nav {
   overflow: hidden; 
   background-color:  rgb(235, 151, 102);
-  font-family: Arial;
+  font-family: 'Nunito', sans-serif;
 }
 
 nav a {

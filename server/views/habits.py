@@ -7,8 +7,7 @@ from flask import jsonify, request
 from models import User, Comment, Subvue, Habit
 from mongoengine.errors import ValidationError
 from authorization import login_required
-
-# global counter = 0
+import ast
 
 @app.route("/api/habits/public")
 def habit_index():
@@ -24,20 +23,11 @@ def habit_index():
 @app.route("/api/habits", methods=["POST"])
 @login_required
 def habit_create(username: str):
-    # if not request.json:
-    #     return jsonify({"error": "Data not specified"}), 409
-    # if not request.json.get("name"):
-    #     return jsonify({"error": "Name not specified"}), 409
-    # if not request.json.get("description"):
-    #     return jsonify({"error": "Description not specified"}), 409
-    # if not request.json.get("num_Days"):
-    #     return jsonify({"error": "numDays not specified"}), 409
-
     schema = Schema({
         "name": And(str, len, error="Namr not specified"),
         "description": And(str, len, error="description not specified"),
         "num_Days": And(Use(int), error="Number of Days not specified"),
-        "is_public": And(str, len, error="publicity not specified"),
+        "is_public": And(str, len, error="publicity not specified")
     })
     form = {
         "name": request.form.get("name"),
@@ -47,25 +37,12 @@ def habit_create(username: str):
     }
     validated = schema.validate(form)
 
-    #subvue_permalink = validated["habit"]
-    #subvue = Subvue.objects(permalink__iexact=subvue_permalink).first()
-    #if not subvue:
-    #    return jsonify({"error": f"Subvue '{subvue_permalink}' not found"}), 404
-
+    temp_data = []
     user = User.objects(username=username).first()
+    for i in range(validated["num_Days"]):
+        temp_data.append(["false", 0, 0])
 
     habit = Habit(
-        # user=user,
-        # id = counter
-        # name= validated["title"],
-        # description="",
-        # days = numDays,
-        # repeat = [],
-        # self.start_Date = [timer.strftime("%m"), timer.strftime("%d")], #A list with the month in mm format and day in the dd format
-        # self.start_Day = int(timer.day()),
-        # self.curr_Day = int(timer.day()),
-        # endDate = []
-
         user = user,
         name = validated["name"],
         description=validated["description"],
@@ -75,7 +52,8 @@ def habit_create(username: str):
         string_start = datetime.strftime(datetime.now(), "%B %m, %Y"), #A list with the month in mm format and day in the dd format
         curr_Date = datetime.now(),
         end_Date = datetime.now() + timedelta(days=int(validated["num_Days"])),
-        is_public = validated["is_public"]
+        is_public = validated["is_public"],
+        habit_data = temp_data
     ).save()
     return jsonify(habit.to_public_json())
 
@@ -128,23 +106,53 @@ def habits_delete(username: str, id: str):
 
     return jsonify(habit_info)
 
+@app.route("/api/habits/id/<string:id>", methods=["POST"])
+@login_required
+def habit_update(username: str, id: str):
+    x = request.form.get("habit_data")
+    y = ""
+    habit_data = []
+    data = []
+    for i in x:
+        if i == 't':
+            y += 't'
+        elif i == 'r':
+            y += 'r'
+        elif i == 'u':
+            y += 'u'
+        elif i == 'e':
+            y += 'e'
+            data.append(y)
+            y = ""
+        elif i == 'f':
+            y += 'f'
+        elif i == 'a':
+            y += 'a'
+        elif i == 'l':
+            y += 'l'
+        elif i == 's':
+            y += 's'
+        elif i == "0":
+            if len(data) == 2:
+                data.append(0)
+                habit_data.append(data)
+                data = []
+            else:
+                data.append(0)
+    schema = Schema({
+        #"habit_data": And(Use(list), error="habit_data not specified")
+    })
+    form = {
+        #"habit_data": request.form.get("habit_data"),
+    }
+    validated = schema.validate(form)
+    try:
+        habit = Habit.objects(pk=id).first()
+        if not habit:
+            raise ValidationError
+    except ValidationError:
+        return jsonify({"error": "Grid not found"}), 404
 
-#@app.route("/api/habits/<string:id>/comments", methods=["habit"])
-#@login_required
-#def habits_create_comment(username: str, id: str):
-#    schema = Schema({
-#        "content": And(str, len, error="No content specified")
-#    })
-#    validated = schema.validate(request.json)
-#
-#    try:
-#        habit = habit.objects(pk=id).first()
-#    except ValidationError:
-#        return jsonify({"error": "habit not found"}), 404
-#
-#    user = User.objects(username=username).first()
-#    comments = habit.comments
-#    comments.append(Comment(user=user, content=validated["content"]))
-#    habit.save()
-#
-#    return jsonify([comment.to_public_json() for comment in habit.comments][::-1])
+    habit.habit_data = habit_data
+    habit.save()
+    return jsonify(habit.to_public_json())
