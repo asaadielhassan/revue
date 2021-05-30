@@ -206,7 +206,7 @@ main {
 
 .main__greeting > h1 {
   font-size: 45px;
-  font-weight: 100;
+  font-weight: 500;
   color: #20222e;
   margin-bottom: 5px;
 }
@@ -290,7 +290,7 @@ main {
 
 .charts__left__title > div > p {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   color: #535d70;
 }
 
@@ -332,7 +332,7 @@ main {
 
 .charts__right__title > div > p {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   color: #535d70;
 }
 

@@ -3,6 +3,7 @@
     <div class="container">
       <!-- Title  -->
       <div class="title">Login</div>
+      <p class="error">{{ error }}</p>
       <div class="content">
 
         <form  @submit.prevent="login">

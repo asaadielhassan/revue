@@ -32,13 +32,21 @@ export default {
 
 <style>
 #app {
+<<<<<<< HEAD
     font-family: 'Times New Roman', Times, serif;
+=======
+    font-family: 'Nunito', sans-serif;
+>>>>>>> Abhishek
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 } 
 
  body {
+<<<<<<< HEAD
     font-family: 'Times New Roman', Times, serif;
+=======
+    font-family: 'Nunito', sans-serif;
+>>>>>>> Abhishek
 }
 
 header {
