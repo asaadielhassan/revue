@@ -154,5 +154,8 @@ def habit_update(username: str, id: str):
         return jsonify({"error": "Grid not found"}), 404
 
     habit.habit_data = habit_data
-    habit.save()
+    if username != habit.user.username:
+        return jsonify({"error": "You are not the creator of the grid"}), 401
+    else:
+        habit.save()
     return jsonify(habit.to_public_json())
